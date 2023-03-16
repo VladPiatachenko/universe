@@ -71,6 +71,6 @@ public final class UserService {
     }
 
     public static boolean isCorrectPassword(String password, String encodedPassword) {
-        return passwordEncoder.matches(password, encodedPassword);
+       return passwordEncoder.matches(password, encodedPassword);
     }
 }
