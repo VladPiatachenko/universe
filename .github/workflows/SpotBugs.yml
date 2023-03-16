@@ -20,7 +20,6 @@ jobs:
           ${{ runner.os }}-maven-
     - name: Build with Maven
       run: mvn -B verify spotbugs:spotbugs
-    - name: Upload analysis results to GitHub Security tab
-        uses: github/codeql-action/upload-sarif@v2
-        with:
-          sarif_file: ${{github.workspace}}/results.sarif
+    - uses: jwgmeligmeyling/spotbugs-github-action@master
+      with:
+        path: 'src/main/resources/spotbugsXml.xml'
