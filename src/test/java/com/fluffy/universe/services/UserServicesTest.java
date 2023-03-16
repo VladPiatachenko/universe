@@ -17,7 +17,7 @@ public class UserServicesTest {
     @Test
     public void encodePasswordTest(){
         String result=UserService.encodePassword("Password1!");
-        assertTrue(result.matches("[\\w\\[\\]`!@#$%\\^&*()={}/:;<>+']*"));
+        assertTrue(result.matches("^(?=.*\\d)(?=.*[a-z])(?=.*[A-Z]).{60}$"));
     }
     @Test
     public void isCorrectPasswordTest(){
