@@ -39,9 +39,9 @@ public class UserServicesTest{
     @Test
     public void isCorrectPasswordTest(){
         assertTrue(UserService.isCorrectPassword("Password1!",
-                        "$2a$10$"+
-                                "UZm.EaDD8VgKVcyVrUGiguWF"+
-                                "7ZYjsyzQlDy3cNcIiblDiHfhrUS7i"));
+                        "$2a$10$"
+                +"UZm.EaDD8VgKVcyVrUGiguWF"
+                +"7ZYjsyzQlDy3cNcIiblDiHfhrUS7i"));
     }
 
 }
