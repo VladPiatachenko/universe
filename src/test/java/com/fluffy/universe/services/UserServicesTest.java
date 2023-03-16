@@ -1,3 +1,6 @@
+/**
+ * test.java.com.fluffy.universe.services contains training unit tests for course
+ */
 package com.fluffy.universe.services;
 
 import com.fluffy.universe.utils.Configuration;
@@ -6,10 +9,12 @@ import org.junit.jupiter.api.Test;
 
 import java.io.File;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
-
-public class UserServicesTest {
+/*
+*Tests for UserServices
+* provide encoding tests for passwords
+* */
+public class UserServicesTest{
     @BeforeAll
     public static void setUpTestEnvironment(){
         Configuration.load(new File("application.properties"));
@@ -22,7 +27,9 @@ public class UserServicesTest {
     @Test
     public void isCorrectPasswordTest(){
         assertTrue(UserService.isCorrectPassword("Password1!",
-                        "$2a$10$UZm.EaDD8VgKVcyVrUGiguWF7ZYjsyzQlDy3cNcIiblDiHfhrUS7i"));
+                        "$2a$10$"+
+                                "UZm.EaDD8VgKVcyVrUGiguWF"+
+                                "7ZYjsyzQlDy3cNcIiblDiHfhrUS7i"));
     }
 
 }
