@@ -1,6 +1,6 @@
 /**
  * test.java.com.fluffy.universe.services
- *  contains training unit tests for course
+ *  contains training unit tests for course.
  *
  * @since 1.1
  * @author Erlkonig
@@ -22,7 +22,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 public class UserServicesTest {
     /**
      *Loading configuartions
-     *from application.properties
+     *from application.properties.
      */
     @BeforeAll
     public static void setUpTestEnvironment() {
@@ -30,7 +30,7 @@ public class UserServicesTest {
     }
     /**
      *Matching encoded password
-     *to regular exprecion
+     *to regular exprecion.
      */
     @Test
     public void encodePasswordTest() {
@@ -38,7 +38,7 @@ public class UserServicesTest {
         assertTrue(result.matches("^(?=.*\\d)(?=.*[a-z])(?=.*[A-Z]).{60}$"));
     }
     /**
-     *Test on correct encrypting
+     *Test on correct encrypting.
      */
     @Test
     public void isCorrectPasswordTest() {
