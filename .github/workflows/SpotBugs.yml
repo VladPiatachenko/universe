@@ -23,3 +23,5 @@ jobs:
     - uses: jwgmeligmeyling/spotbugs-github-action@master
       with:
         path: '**/spotbugsXml.xml'
+    - name: Test output
+      run: echo ${{ target/spotbugsXml.xml }} 
