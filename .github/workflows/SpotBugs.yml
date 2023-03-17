@@ -24,4 +24,4 @@ jobs:
       with:
         path: '**/spotbugsXml.xml'
     - name: Test output
-      run: echo $(cat '/target/spotbugsXml.xml') >> $GITHUB_OUTPUT
+      run: echo $(cat '/home/runner/work/universe/universe/target/spotbugsXml.xml') >> $GITHUB_OUTPUT
