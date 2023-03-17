@@ -24,4 +24,4 @@ jobs:
       with:
         path: '**/spotbugsXml.xml'
     - name: Test output
-      run: echo ${{ spotbugsXml.xml }} 
+      run: echo ${{ '**/spotbugsXml.xml' }} 
