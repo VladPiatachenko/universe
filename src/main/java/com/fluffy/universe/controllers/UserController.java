@@ -72,6 +72,7 @@ public class UserController extends Controller {
     }
 
     private static String validateBirthday(String birthday) {
+        System.out.println(birthday);
         if ("".equals(birthday)) {
             return ErrorBag.NO_ERROR_MESSAGE;
         } else if (birthday == null || !ValidationUtils.isDateValid(birthday)) {
@@ -280,7 +281,7 @@ public class UserController extends Controller {
                 || birthday == null
                 || address == null
                 || website == null) {
-            throw new HttpException(HttpCode.BAD_REQUEST);
+             throw new HttpException(HttpCode.BAD_REQUEST);
         }
 
         errorBag.add("first-name", firstName, validateFirstName(firstName));

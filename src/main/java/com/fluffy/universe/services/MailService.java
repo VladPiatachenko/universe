@@ -57,10 +57,9 @@ public final class MailService {
         }
     }
 
-    private static Multipart render(String template, Map<String, String> values) throws MessagingException {
+    static Multipart render(String template, Map<String, String> values) throws MessagingException {
         StringSubstitutor stringSubstitutor = new StringSubstitutor(values);
         Multipart multipart = new MimeMultipart("alternative");
-
         MimeBodyPart textPart = new MimeBodyPart();
         String text = getResource("mails/" + template + ".txt");
         if (text != null) {
