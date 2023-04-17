@@ -17,12 +17,11 @@ Feature: Registration
     And I click on the "Register Now" button
     Then I should be successfully registered
     And I should land on the "Home" page
-    And I should see "success" message as "Congrats! Your registration has been successful."
+    And I should see "Congratulations!" message as "You have successfully signed up. Welcome to our community!"
     And I should see "Dashboard" and "Logout" links
     Examples:
       | first-name | last-name | email                 | password  | confirm password |
-      | asdf.asdf  | abcd.efgh | asdf.asdf@example.com | Asdf@1234 | Asdf@1234        |
-
+      | aassdf.asdff  | abcd.efgh | aassdff.asdf@example.com | Asdf@1234 | Asdf@1234        |
 
   @DisabledRegistration
   Scenario Outline: Disabled Registration when one of the required fields is left blank
