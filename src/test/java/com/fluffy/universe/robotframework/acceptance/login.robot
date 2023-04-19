@@ -21,5 +21,7 @@ Valid Login
     click element  xpath://*[@id="sign-in__password"]
     input text  id:sign-in__password  ${VALID_PASS}
     click element  xpath:/html/body/div[1]/main/div/form/div[5]/div/button
+    Wait Until Page Contains  New post
+    Click Element  xpath:/html/body/header/nav/ul/li[2]/div/button/img
     Take Screenshot
     [Teardown]  Close Browser
