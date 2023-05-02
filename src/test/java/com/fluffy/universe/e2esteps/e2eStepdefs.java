@@ -27,7 +27,6 @@ public class e2eStepdefs implements En {
         inputs.put("confirm password","confirm-password");
         inputs.put("Register Now","/html/body/div[1]/main/div/form/div[6]/button");
         inputs.put("Home","http://127.0.0.1:7000/");
-
     }
     @BeforeEach    @io.cucumber.java.en.Given("^I navigate to the \"([^\"]*)\" page$")
     public void iNavigateToThePage(String arg0) throws Throwable {
@@ -65,6 +64,7 @@ public class e2eStepdefs implements En {
     }
     @io.cucumber.java.en.And("^I should see \"([^\"]*)\" and \"([^\"]*)\" links$")
     public void iShouldSeeAndLinks(String arg0, String arg1) throws Throwable {
+        driver.findElement(By.xpath("/html/body/header/nav/ul/li[2]/div/button/img")).click();
         driver.findElement(By.xpath("/html/body/header/nav/ul/li[2]")).click();
         File scrFile = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
         FileUtils.copyFile(scrFile, new File("src\\test\\resources\\screenshots\\See"+arg0+"and"+arg1+".png"));        WebElement link1=driver.findElement(By.xpath("/html/body/header/nav/ul/li[2]/div/ul/li[2]/a"));

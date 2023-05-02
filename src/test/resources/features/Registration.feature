@@ -21,7 +21,7 @@ Feature: Registration
     And I should see "Dashboard" and "Logout" links
     Examples:
       | first-name | last-name | email                 | password  | confirm password |
-      | aassdf.asdff  | abcd.efgh | aassdff.asdf@example.com | Asdf@1234 | Asdf@1234        |
+      | aassdf.asdff  | abcd.efgh | aassdff4.asdf@example.com | Asdf@1234 | Asdf@1234        |
 
   @DisabledRegistration
   Scenario Outline: Disabled Registration when one of the required fields is left blank
