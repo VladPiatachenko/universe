@@ -1,12 +1,15 @@
 package com.fluffy.universe.e2e;
-import io.cucumber.java8.En;import org.apache.commons.io.FileUtils;
-import org.junit.jupiter.api.BeforeAll;import org.junit.jupiter.api.BeforeEach;
+import io.cucumber.java8.En;
+import org.apache.commons.io.FileUtils;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.firefox.FirefoxOptions;import org.openqa.selenium.firefox.FirefoxProfile;
+import org.openqa.selenium.firefox.FirefoxOptions;
+import org.openqa.selenium.firefox.FirefoxProfile;
 import org.openqa.selenium.interactions.Actions;
 
 import java.io.File;
