@@ -2,7 +2,7 @@ name: Java CI with Maven Build and Test
 
 on:
   push:
-    branches: [ "sumdu.edu.ua" ]
+    branches: [ "sumdu.edu.ua","units_piatachenko" ]
   pull_request:
     branches: [ "sumdu.edu.ua" ]
 
