@@ -1,23 +1,26 @@
 package com.fluffy.universe.e2esteps;
-import io.cucumber.java8.En;import org.apache.commons.io.FileUtils;
-import org.junit.jupiter.api.BeforeAll;import org.junit.jupiter.api.BeforeEach;
+
+import io.cucumber.java.en.Then;
+import io.cucumber.java8.En;
+import org.apache.commons.io.FileUtils;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
-import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.firefox.FirefoxOptions;import org.openqa.selenium.firefox.FirefoxProfile;
+
 import java.io.File;
-import java.io.IOException;import java.util.HashMap;
+import java.io.IOException;
+import java.util.HashMap;
 import java.util.Map;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 public class e2eStepdefs implements En {
     WebDriver driver;
     Map<String,String> inputs=new HashMap<>();
     @BeforeAll
     void prepareInputs(){
-        //System.setProperty("webdriver.gecko.driver","E:\\erlkonig\\geckodriver\\geckodriver.exe" );
         ChromeOptions options = new ChromeOptions();
-        //options.setProfile(new ChromeProfile());
         driver = new ChromeDriver(options);
         inputs.put("Registration","http://127.0.0.1:7000/sign-up");
         inputs.put("Firstname","first-name");
@@ -27,6 +30,9 @@ public class e2eStepdefs implements En {
         inputs.put("confirm password","confirm-password");
         inputs.put("Register Now","/html/body/div[1]/main/div/form/div[6]/button");
         inputs.put("Home","http://127.0.0.1:7000/");
+        inputs.put("Login","http://127.0.0.1:7000/sign-in");
+        inputs.put("username","email");
+        inputs.put("Sign in","/html/body/div[1]/main/div/form/div[5]/div/button");
     }
     @BeforeEach    @io.cucumber.java.en.Given("^I navigate to the \"([^\"]*)\" page$")
     public void iNavigateToThePage(String arg0) throws Throwable {
@@ -36,9 +42,8 @@ public class e2eStepdefs implements En {
     }
     @io.cucumber.java.en.When("^I fill in \"([^\"]*)\" with \"([^\"]*)\"$")
     public void iFillInWith(String arg0, String arg1) throws Throwable {
-        WebElement field=driver.findElement(By.name(inputs.get(arg0)));
-        field.sendKeys(arg1);
-    }
+        driver.findElement(By.name(inputs.get(arg0))).sendKeys(arg1);
+        }
     @io.cucumber.java.en.And("^I click on the \"([^\"]*)\" button$")
     public void iClickOnTheButton(String arg0) throws Throwable {
         WebElement button = driver.findElement(By.xpath(inputs.get(arg0)));
@@ -52,7 +57,7 @@ public class e2eStepdefs implements En {
     @io.cucumber.java.en.And("^I should land on the \"([^\"]*)\" page$")
     public void iShouldLandOnThePage(String arg0) throws Throwable {
         String currentPage=driver.getCurrentUrl();
-        assertEquals(currentPage,inputs.get(arg0));
+        assertEquals(inputs.get(arg0),currentPage);
     }
     @io.cucumber.java.en.And("^I should see \"([^\"]*)\" message as \"([^\"]*)\"$")
     public void iShouldSeeMessageAs(String arg0, String arg1) throws Throwable {
@@ -67,23 +72,14 @@ public class e2eStepdefs implements En {
         driver.findElement(By.xpath("/html/body/header/nav/ul/li[2]/div/button/img")).click();
         driver.findElement(By.xpath("/html/body/header/nav/ul/li[2]")).click();
         File scrFile = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
-        FileUtils.copyFile(scrFile, new File("src\\test\\resources\\screenshots\\See"+arg0+"and"+arg1+".png"));        WebElement link1=driver.findElement(By.xpath("/html/body/header/nav/ul/li[2]/div/ul/li[2]/a"));
-        WebElement link2=driver.findElement(By.xpath("/html/body/header/nav/ul/li[2]/div/ul/li[3]/form/button"));        assertEquals(arg0,link1.getText());
+        FileUtils.copyFile(scrFile, new File("src\\test\\resources\\screenshots\\See"+arg0+"and"+arg1+".png"));
+        WebElement link1=driver.findElement(By.xpath("/html/body/header/nav/ul/li[2]/div/ul/li[2]/a"));
+        WebElement link2=driver.findElement(By.xpath("/html/body/header/nav/ul/li[2]/div/ul/li[3]/form/button"));
+        assertEquals(arg0,link1.getText());
         assertEquals(arg1,link2.getText());
         link2.click();
         driver.close();
     }
 
-    @io.cucumber.java.en.Then("^I should see \"([^\"]*)\" message for \"([^\"]*)\" field on \"([^\"]*)\" page$")
-    public void iShouldSeeMessageForFieldOnPage(String arg0, String arg1, String arg2) throws Throwable {
-        // Write code here that turns the phrase above into concrete actions
-    }
-    @io.cucumber.java.en.And("^I should see \"([^\"]*)\" buttton disbaled$")
-    public void iShouldSeeButttonDisbaled(String arg0) throws Throwable {
-        // Write code here that turns the phrase above into concrete actions
-    }
-    @io.cucumber.java.en.And("^I should not be able to submit the \"([^\"]*)\" form$")
-    public void iShouldNotBeAbleToSubmitTheForm(String arg0) throws Throwable {
-        // Write code here that turns the phrase above into concrete actions
-    }
+
 }

@@ -5,7 +5,6 @@ Feature: Login
   In order to check if it works as desired
 
   Background: A Registered User navigates to Login page
-    Given I am a registered user
     And I navigate to the "Login" page
 
   @SuccessfulLogin
@@ -24,12 +23,12 @@ Feature: Login
   Scenario Outline: Failed login using wrong credentials
     When I fill in "username" with "<username>"
     And I fill in "password" with "<password>"
-    And I click on the "Log In" button
+    And I click on the "Sign in" button
     Then I should be redirected on the "Login" page
     And I should see "error" message as "<alert>"
     Examples:
       | username    | password   | alert                               	 |
-      | araj        | !23			 	 | Invalid username/password, Try again! |
+      | araj        | !23		 | Invalid username/password, Try again! |
       | ARAJ        | !23        | Invalid username/password, Try again! |
       | aRaJ        | !23        | Invalid username/password, Try again! |
       | Test        | !23        | Invalid username/password, Try again! |
@@ -43,6 +42,6 @@ Feature: Login
     And I should see "Log In" buttton disbaled
     And I should not be able to submit the "Login" form
     Examples:
-      | username    | password   | form error																		|	input field	|
-      | 		        | Asdf@1234	 | The username is required and cannot be empty	|	username		|
-      | araj        | 		       | The Password is required and cannot be empty | password		|
+      | username    | password   | form error									|	input field	|
+      | 		    | Asdf@1234	 | The username is required and cannot be empty	|	username	|
+      | araj        | 		     | The Password is required and cannot be empty | password		|

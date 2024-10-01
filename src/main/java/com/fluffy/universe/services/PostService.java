@@ -10,8 +10,8 @@ import java.sql.SQLException;
 import java.util.List;
 import java.util.Map;
 
-public final class PostService {
-    private PostService() {}
+public class PostService {
+    public PostService() {}
 
     private static final String INSERT_POST_SQL = "INSERT INTO Post "
             + "(UserID, Title, Description, PublicationDateTime) VALUES"

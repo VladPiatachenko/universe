@@ -18,10 +18,10 @@ Feature: Registration
     Then I should be successfully registered
     And I should land on the "Home" page
     And I should see "Congratulations!" message as "You have successfully signed up. Welcome to our community!"
-    And I should see "Dashboard" and "Logout" links
+    And I should see "Dashboard" and "Sign out" links
     Examples:
       | first-name | last-name | email                 | password  | confirm password |
-      | aassdf.asdff  | abcd.efgh | aassdff4.asdf@example.com | Asdf@1234 | Asdf@1234        |
+      | aassdf.asdff007  | abcd.efgh | aassdff11.asdf@example.com | Asdf@1234 | Asdf@1234        |
 
   @DisabledRegistration
   Scenario Outline: Disabled Registration when one of the required fields is left blank

@@ -16,7 +16,7 @@ import java.util.Map;
 import java.util.Properties;
 
 public final class MailService {
-    private MailService() {}
+    MailService() {}
 
     private static final String mailFrom;
     private static final Session session;
@@ -49,7 +49,7 @@ public final class MailService {
     }
 
     @SuppressWarnings("UnstableApiUsage")
-    private static String getResource(String resource) {
+    static String getResource(String resource) {
         try {
             return Resources.toString(Resources.getResource(resource), StandardCharsets.UTF_8);
         } catch (IOException ignored) {

@@ -75,7 +75,21 @@
       <artifactId>commons-text</artifactId>
       <version>1.10.0</version>
     </dependency>
-    <!-- https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter-api -->
+
+    <dependency>
+      <groupId>org.powermock</groupId>
+      <artifactId>powermock-module-junit4</artifactId>
+      <version>2.0.9</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.powermock</groupId>
+      <artifactId>powermock-api-mockito2</artifactId>
+      <version>2.0.9</version>
+      <scope>test</scope>
+    </dependency>
+
+
     <dependency>
       <groupId>org.junit.jupiter</groupId>
       <artifactId>junit-jupiter-api</artifactId>
@@ -88,14 +102,12 @@
       <version>5.9.1</version>
       <scope>test</scope>
     </dependency>
-    <!-- https://mvnrepository.com/artifact/org.mockito/mockito-core -->
     <dependency>
       <groupId>org.mockito</groupId>
-      <artifactId>mockito-core</artifactId>
-      <version>4.8.0</version>
+      <artifactId>mockito-inline</artifactId>
+      <version>4.6.1</version>
       <scope>test</scope>
     </dependency>
-    <!-- https://mvnrepository.com/artifact/io.cucumber/cucumber-java -->
     <dependency>
       <groupId>io.cucumber</groupId>
       <artifactId>cucumber-java</artifactId>
@@ -131,7 +143,13 @@
     <dependency>
       <groupId>org.seleniumhq.selenium</groupId>
       <artifactId>selenium-java</artifactId>
-      <version>4.8.3</version>
+      <version>4.11.0</version>
+    </dependency>
+    <dependency>
+      <groupId>org.mockito</groupId>
+      <artifactId>mockito-core</artifactId>
+      <version>5.2.0</version>
+      <scope>test</scope>
     </dependency>
   </dependencies>
 
@@ -153,9 +171,14 @@
           <version>3.8.0</version>
         </plugin>
         <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-surefire-plugin</artifactId>
-          <version>3.0.0</version>
+          <version>3.0.0-M5</version>
+          <configuration>
+            <argLine>--add-opens java.base/java.lang=ALL-UNNAMED</argLine>
+          </configuration>
         </plugin>
+
         <plugin>
           <artifactId>maven-install-plugin</artifactId>
           <version>2.5.2</version>

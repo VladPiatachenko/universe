@@ -23,7 +23,7 @@ public class UserController extends Controller {
         super("", application);
     }
 
-    private static String validateEmail(String email, boolean shouldBeUnique) {
+    public static String validateEmail(String email, boolean shouldBeUnique) {
         if (email == null || email.isEmpty()) {
             return "Enter your email address";
         } else if (!ValidationUtils.isValidMail(email)) {

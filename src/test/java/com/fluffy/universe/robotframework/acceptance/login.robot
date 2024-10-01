@@ -1,6 +1,7 @@
 *** Settings ***
 Library  SeleniumLibrary
 Library  Screenshot  ${SCREENDIR}
+Library  OperatingSystem
 *** Variables ***
 ${HOST}           127.0.0.1:7000
 ${LOGIN URL}      http://${HOST}/sign-in
@@ -9,11 +10,14 @@ ${BROWSER}        chrome
 ${VALID_EMAIL}    aassdff.asdf@example.com
 ${VALID_PASS}     Asdf@1234
 ${SCREENDIR}      src/test/resources/screenshots
+${EXECDIR}        E://erlkonig//Elephant//src//test//resources//chromedriver_win32//chromedriver.exe
+
 ***Test Cases***
 Login
     Valid Login
 ***Keywords***
 Valid Login
+    Create Webdriver    Chrome    executable_path=${EXECDIR}
     Open Browser  ${LOGIN URL}  ${BROWSER}
     maximize browser window
     click element  xpath://*[@id="sign-in__email"]
