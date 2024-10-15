@@ -37,10 +37,10 @@ jobs:
         run: mvn install -DskipTests
 
       # Step 4: Set up SQLite using correct forward-slash paths
-      - name: Set up SQLite on Windows
+      - name: Set up SQLite using correct forward-slash paths
         run: |
-          $env:Path += ";${{ github.workspace }}"
-          .\sqlite3.exe ${{ github.workspace }}/universe.db ".read ${{ github.workspace }}/schema.sql"
+           $env:Path += ";${{ github.workspace }}"  # Append your project directory to the system path
+           .\sqlite3.exe ${{ github.workspace }}/universe.db ".exit"  # Ensure the SQLite database exists and is accessible
 
       # Step 5: Start the Java application
       - name: Run the Java application
