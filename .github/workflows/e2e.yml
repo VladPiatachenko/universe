@@ -4,14 +4,13 @@ on:
   push:
     branches:
       - sumdu.edu.ua
-      - units_piatachenko
   pull_request:
     branches:
       - sumdu.edu.ua
 
 jobs:
   e2e-tests:
-    runs-on: windows-latest  # Use Windows environment
+    runs-on: windows-latest  # Run on Windows environment for compatibility
 
     steps:
       # Step 1: Checkout the code
@@ -42,12 +41,17 @@ jobs:
           $env:Path += ";${{ github.workspace }}"
           .\sqlite3.exe universe.db ".read schema.sql"
 
-      # Step 5: Start the application
+      # Step 5: Start the Java application
       - name: Run the Java application
         run: |
           mvn spring-boot:run &
 
-      # Step 6: Install Python and Robot Framework for E2E tests
+      # Step 6: Run Cucumber + Selenium tests
+      - name: Run Cucumber + Selenium tests
+        run: |
+          mvn test
+
+      # Step 7: Set up Python for Robot Framework tests
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
@@ -59,14 +63,16 @@ jobs:
           pip install robotframework-seleniumlibrary
           pip install -r requirements.txt
 
-      # Step 7: Run E2E tests
+      # Step 8: Run Robot Framework E2E tests
       - name: Run Robot Framework E2E tests
         run: |
           robot --outputdir results e2e_tests/
 
-      # Step 8: Archive test results
-      - name: Upload test results
+      # Step 9: Archive Cucumber and Robot Framework test results
+      - name: Archive test results
         uses: actions/upload-artifact@v3
         with:
-          name: robot-results
-          path: results/
+          name: test-results
+          path: |
+            target/surefire-reports   # Cucumber test results (JUnit reports are often stored here)
+            results/                 # Robot Framework results
