@@ -32,7 +32,7 @@ public class UserControllerTest {
 
     @Test
     public void updateAccountTest(){
-        Configuration.load(new File("E:\\erlkonig\\universe\\application.properties"));
+        Configuration.load(new File("application.properties"));
         Javalin app = Mockito.mock(Javalin.class);
         Context ctx = Mockito.mock(Context.class);
         SessionUtils sessUtils = Mockito.mock(SessionUtils.class);
