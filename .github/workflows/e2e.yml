@@ -12,7 +12,7 @@ on:
 
 jobs:
   e2e-tests:
-    runs-on: windows-latest  # Use Windows environment for tests
+    runs-on: windows-latest  # Use Windows environment
 
     steps:
       # Step 1: Checkout the code
@@ -33,9 +33,9 @@ jobs:
           java-version: '19'
           cache: 'maven'
 
-      # Step 3: Install dependencies
-      - name: Install dependencies with Maven
-        run: mvn install
+      # Step 3: Install dependencies without running tests
+      - name: Install dependencies without tests
+        run: mvn install -DskipTests
 
       # Step 4: Set up SQLite
       - name: Set up SQLite on Windows
@@ -48,7 +48,7 @@ jobs:
         run: |
           mvn spring-boot:run &
 
-      # Step 6: Run Cucumber + Selenium tests
+      # Step 6: Run Cucumber + Selenium tests after the app and database are ready
       - name: Run Cucumber + Selenium tests
         run: |
           mvn test
