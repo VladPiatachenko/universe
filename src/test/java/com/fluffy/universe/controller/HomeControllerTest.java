@@ -37,7 +37,7 @@ public class HomeControllerTest {
         when(ctx.queryParam("size")).thenReturn("10");
         Map<String, Object> model = new HashMap<String,Object>();
 
-        Configuration.load(new File("E:\\erlkonig\\universe\\application.properties"));//для стабільної роботи програми
+        Configuration.load(new File("application.properties"));//для стабільної роботи програми
         //нам буде треба існування десь безконтрольно на фоні коннекту до БД
         SessionUtils sessUtils = Mockito.mock(SessionUtils.class);//новий мок об'єкт для керування доступом
         // до того, що має повертатись з контексту
