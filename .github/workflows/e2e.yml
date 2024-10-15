@@ -12,7 +12,7 @@ on:
 
 jobs:
   e2e-tests:
-    runs-on: windows-latest  # Use Windows environment
+    runs-on: windows-latest  # Use Windows environment for tests
 
     steps:
       # Step 1: Checkout the code
