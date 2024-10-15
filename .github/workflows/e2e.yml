@@ -3,7 +3,6 @@ name: E2E Tests
 on:
   push:
     branches:
-      - sumdu.edu.ua
       - units_piatachenko
   pull_request:
     branches:
@@ -37,11 +36,11 @@ jobs:
       - name: Install dependencies without tests
         run: mvn install -DskipTests
 
-      # Step 4: Set up SQLite
+      # Step 4: Set up SQLite using the correct path
       - name: Set up SQLite on Windows
         run: |
           $env:Path += ";${{ github.workspace }}"
-          .\sqlite3.exe universe.db ".read schema.sql"
+          .\sqlite3.exe ${{ github.workspace }}\universe.db ".read ${{ github.workspace }}\schema.sql"
 
       # Step 5: Start the Java application
       - name: Run the Java application
