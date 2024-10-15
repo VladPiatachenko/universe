@@ -23,8 +23,8 @@ import static org.junit.jupiter.api.Assertions.assertNotEquals;
 public class Profilee2eTest {
     static WebDriver driver;
     static String loginUrl="http://127.0.0.1:7000/sign-in";
-    static String testEmail="aassdff2.asdf@example.com";
-    static String testpass="Asdf@1234";
+    static String testEmail="potter@hogwarts.uk";
+    static String testpass="Password1!";
     static String homepage="http://127.0.0.1:7000/";
     static String profilePage="http://127.0.0.1:7000/account";
     /**

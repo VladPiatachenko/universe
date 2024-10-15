@@ -1,85 +1,121 @@
 package com.fluffy.universe.e2esteps;
 
-import io.cucumber.java.en.Then;
-import io.cucumber.java8.En;
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fluffy.universe.controllers.UserControllerIntegrationTest;
+import io.cucumber.java.After;
+import io.cucumber.java.Before;
+import io.cucumber.java.en.*;
+import io.cucumber.junit.Cucumber;
+import io.cucumber.junit.CucumberOptions;
+import io.github.bonigarcia.wdm.WebDriverManager;
 import org.apache.commons.io.FileUtils;
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.BeforeEach;
+import org.junit.Test;
+import org.junit.runner.RunWith;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.io.File;
 import java.io.IOException;
+import java.time.Duration;
 import java.util.HashMap;
 import java.util.Map;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-public class e2eStepdefs implements En {
+
+public class e2eStepdefs {
     WebDriver driver;
-    Map<String,String> inputs=new HashMap<>();
-    @BeforeAll
-    void prepareInputs(){
+    private static Map<String, String> selectors;
+    String currentemail="";
+
+    void prepareInputs() {
         ChromeOptions options = new ChromeOptions();
+        System.setProperty("webdriver.chrome.driver", "chromedriver.exe");
         driver = new ChromeDriver(options);
-        inputs.put("Registration","http://127.0.0.1:7000/sign-up");
-        inputs.put("Firstname","first-name");
-        inputs.put("Lastname","last-name");
-        inputs.put("email","email");
-        inputs.put("password","password");
-        inputs.put("confirm password","confirm-password");
-        inputs.put("Register Now","/html/body/div[1]/main/div/form/div[6]/button");
-        inputs.put("Home","http://127.0.0.1:7000/");
-        inputs.put("Login","http://127.0.0.1:7000/sign-in");
-        inputs.put("username","email");
-        inputs.put("Sign in","/html/body/div[1]/main/div/form/div[5]/div/button");
-    }
-    @BeforeEach    @io.cucumber.java.en.Given("^I navigate to the \"([^\"]*)\" page$")
-    public void iNavigateToThePage(String arg0) throws Throwable {
-        prepareInputs();
-        System.setProperty("webdriver.http.factory", "jdk-http-client");
-        driver.get(inputs.get(arg0));
-    }
-    @io.cucumber.java.en.When("^I fill in \"([^\"]*)\" with \"([^\"]*)\"$")
-    public void iFillInWith(String arg0, String arg1) throws Throwable {
-        driver.findElement(By.name(inputs.get(arg0))).sendKeys(arg1);
+        ObjectMapper objectMapper = new ObjectMapper();
+        try {
+            selectors = objectMapper.readValue(new File("src/test/resources/CucumberTable/elementParser.json"), new TypeReference<Map<String, String>>() {});
+        } catch (IOException e) {
+            throw new RuntimeException(e);
         }
-    @io.cucumber.java.en.And("^I click on the \"([^\"]*)\" button$")
-    public void iClickOnTheButton(String arg0) throws Throwable {
-        WebElement button = driver.findElement(By.xpath(inputs.get(arg0)));
-        button.click();
     }
-    @io.cucumber.java.en.Then("^I should be successfully registered$")
+
+
+    @Before
+    public void setUp() {
+        System.setProperty("webdriver.http.factory", "jdk-http-client");
+    }
+
+    @Given("I navigate to the {string} page")
+    public void iNavigateToThePage(String page) {
+        prepareInputs();
+        driver.get(selectors.get("host") + page);
+    }
+
+    @When("I fill in {string} with {string}")
+    public void iFillInWith(String field, String value) {
+        driver.findElement(By.name(field)).sendKeys(value);
+        if(field.equals("email")){currentemail=value;}
+    }
+
+    @And("I click on the {string} button")
+    public void iClickOnTheButton(String button) {
+        WebElement btn = driver.findElement(By.xpath(selectors.get(button)));
+        btn.click();
+    }
+
+    @Then("I should be successfully registered")
     public void iShouldBeSuccessfullyRegistered() throws IOException {
-        File scrFile = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
-        FileUtils.copyFile(scrFile, new File("src\\test\\resources\\screenshots\\SuccessfullyRegistered.png"));
+        File scrFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+        FileUtils.copyFile(scrFile, new File("src/test/resources/screenshots/SuccessfullyRegistered.png"));
     }
-    @io.cucumber.java.en.And("^I should land on the \"([^\"]*)\" page$")
-    public void iShouldLandOnThePage(String arg0) throws Throwable {
-        String currentPage=driver.getCurrentUrl();
-        assertEquals(inputs.get(arg0),currentPage);
+
+    @And("I should land on the {string} page")
+    public void iShouldLandOnThePage(String page) {
+        String currentPage = driver.getCurrentUrl();
+        assertEquals(selectors.get("host") + selectors.get(page), currentPage);
     }
-    @io.cucumber.java.en.And("^I should see \"([^\"]*)\" message as \"([^\"]*)\"$")
-    public void iShouldSeeMessageAs(String arg0, String arg1) throws Throwable {
-        WebElement alert=driver.findElement(By.xpath("/html/body/div[2]/div/div[1]/h2"));
-        assertEquals(arg0,alert.getText());
-        alert=driver.findElement(By.xpath("/html/body/div[2]/div/div[2]"));
-        assertEquals(arg1,alert.getText());
-        driver.findElement(By.xpath("/html/body/div[2]/div/div[3]/button")).click();
+
+    @And("I should see message {string} and {string} and {string}")
+    public void iShouldSeeMessageAs(String message1, String message2, String button) {
+        WebDriverWait wait = new WebDriverWait(driver, 3);
+        WebElement alertElement = wait.until(ExpectedConditions.visibilityOfElementLocated(By.className("alert")));
+
+        WebElement titleElement = driver.findElement(By.cssSelector(".alert__heading"));
+        WebElement descriptionElement = driver.findElement(By.cssSelector(".alert__description"));
+
+        String actualTitle = titleElement.getText();
+        String actualDescription = descriptionElement.getText();
+        assertEquals(message1,actualTitle);
+        assertEquals(message2,actualDescription);
+
+        driver.findElement(By.xpath(selectors.get(button))).click();
     }
-    @io.cucumber.java.en.And("^I should see \"([^\"]*)\" and \"([^\"]*)\" links$")
-    public void iShouldSeeAndLinks(String arg0, String arg1) throws Throwable {
-        driver.findElement(By.xpath("/html/body/header/nav/ul/li[2]/div/button/img")).click();
-        driver.findElement(By.xpath("/html/body/header/nav/ul/li[2]")).click();
-        File scrFile = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
-        FileUtils.copyFile(scrFile, new File("src\\test\\resources\\screenshots\\See"+arg0+"and"+arg1+".png"));
-        WebElement link1=driver.findElement(By.xpath("/html/body/header/nav/ul/li[2]/div/ul/li[2]/a"));
-        WebElement link2=driver.findElement(By.xpath("/html/body/header/nav/ul/li[2]/div/ul/li[3]/form/button"));
-        assertEquals(arg0,link1.getText());
-        assertEquals(arg1,link2.getText());
-        link2.click();
+
+    @And("I should see {string} and {string} links")
+    public void iShouldSeeAndLinks(String link1, String link2) throws IOException {
+        driver.findElement(By.xpath(selectors.get("UserPic"))).click();
+        driver.findElement(By.xpath(selectors.get("UserDroplist"))).click();
+        File scrFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+        FileUtils.copyFile(scrFile, new File("src/test/resources/screenshots/See" + link1 + "and" + link2 + ".png"));
+        WebElement linkElement1 = driver.findElement(By.xpath(selectors.get(link1)));
+        WebElement linkElement2 = driver.findElement(By.xpath(selectors.get(link2)));
+        assertEquals(link1, linkElement1.getText());
+        assertEquals(link2, linkElement2.getText());
+        linkElement2.click();
         driver.close();
     }
+    @After
+    public void tearDown() {
+        if (driver != null) {
+            driver.quit();
+            driver = null;
+        }
+        UserControllerIntegrationTest.setup();
+        UserControllerIntegrationTest.deleteUserFromDatabase(currentemail);
 
-
+    }
 }

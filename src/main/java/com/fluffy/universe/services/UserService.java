@@ -12,7 +12,7 @@ import org.sql2o.Connection;
 import java.sql.SQLException;
 
 public  class UserService {//final
-    UserService() {}
+    public UserService() {}
 
     private static final int BCRYPT_STRENGTH = Configuration.getAsClass("application.bcryptStrength", Integer.class);
     private static final String INSERT_USER_SQL = "INSERT INTO User "

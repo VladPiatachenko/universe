@@ -5,34 +5,34 @@ Feature: Registration
   In order to check if it works as desired
 
   Background: User navigates to Registration page
-    Given I navigate to the "Registration" page
+    Given I navigate to the "sign-up" page
 
-  @SuccessfulRegistration
+  @SuccesfullRegistration
   Scenario Outline: Successful Registration using valid credentials
-    When I fill in "Firstname" with "<first-name>"
-    And I fill in "Lastname" with "<last-name>"
+    When I fill in "first-name" with "<first-name>"
+    And I fill in "last-name" with "<last-name>"
     And I fill in "email" with "<email>"
     And I fill in "password" with "<password>"
-    And I fill in "confirm password" with "<confirm password>"
+    And I fill in "confirm-password" with "<confirm password>"
     And I click on the "Register Now" button
     Then I should be successfully registered
-    And I should land on the "Home" page
-    And I should see "Congratulations!" message as "You have successfully signed up. Welcome to our community!"
+    And I should land on the "homepage" page
+    And I should see message "Congratulations!" and "You have successfully signed up. Welcome to our community!" and "sign-up-alert-ok"
     And I should see "Dashboard" and "Sign out" links
     Examples:
-      | first-name | last-name | email                 | password  | confirm password |
-      | aassdf.asdff007  | abcd.efgh | aassdff11.asdf@example.com | Asdf@1234 | Asdf@1234        |
+      | first-name      | last-name | email                      | password  | confirm password |
+      | aassdf.asdff017 | abcd.efgh | aassdff11.asdf@example.com | Asdf@1234 | Asdf@1234        |
 
-  @DisabledRegistration
+  @FailedRegistration
   Scenario Outline: Disabled Registration when one of the required fields is left blank
-    When I fill in "Firstname" with "<first-name>"
-    And I fill in "Lastname" with "<last-name>"
+    When I fill in "first-name" with "<first-name>"
+    And I fill in "last-name" with "<last-name>"
     And I fill in "email" with "<email>"
     And I fill in "password" with "<password>"
-    And I fill in "confirm password" with "<confirm password>"
+    And I fill in "confirm-password" with "<confirm password>"
     And I click on the "Register Now" button
     Then I should see "<form error>" message for "<input field>" field on "Registration" page
-    And I should see "Register Now" buttton disbaled
+    And I should see "Register Now" button disbaled
     And I should not be able to submit the "Registration" form
     Examples:
       | first-name | last-name | email                 | password  | confirm password | form error                                           | input field      |

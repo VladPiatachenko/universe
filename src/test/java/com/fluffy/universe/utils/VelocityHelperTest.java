@@ -7,6 +7,7 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 public class VelocityHelperTest {
+
     @Order(1)
     @Test
     void calculateMaxPageNumberTest1(){
