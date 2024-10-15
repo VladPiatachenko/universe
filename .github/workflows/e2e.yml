@@ -1,0 +1,79 @@
+name: E2E Tests
+
+on:
+  push:
+    branches:
+      - units_piatachenko
+  pull_request:
+    branches:
+      - sumdu.edu.ua
+      - units_piatachenko
+
+jobs:
+  e2e-tests:
+    runs-on: windows-latest  # Use Windows environment
+
+    steps:
+      # Step 1: Checkout the code
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      # Step 2: Set up Java 19 (to match the target release)
+      - name: Set up Java 19
+        uses: actions/setup-java@v3
+        with:
+          distribution: 'temurin'  # Eclipse Temurin distribution
+          java-version: '19'
+
+      - name: Set up Maven
+        uses: actions/setup-java@v3
+        with:
+          distribution: 'temurin'
+          java-version: '19'
+          cache: 'maven'
+
+      # Step 3: Install dependencies without running tests
+      - name: Install dependencies without tests
+        run: mvn install -DskipTests
+
+      # Step 4: Set up SQLite using the correct path
+      - name: Set up SQLite on Windows
+        run: |
+          $env:Path += ";${{ github.workspace }}"
+          .\sqlite3.exe ${{ github.workspace }}\universe.db ".read ${{ github.workspace }}\schema.sql"
+
+      # Step 5: Start the Java application
+      - name: Run the Java application
+        run: |
+          mvn spring-boot:run &
+
+      # Step 6: Run Cucumber + Selenium tests after the app and database are ready
+      - name: Run Cucumber + Selenium tests
+        run: |
+          mvn test
+
+      # Step 7: Set up Python for Robot Framework tests
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.x'
+
+      - name: Install Robot Framework and dependencies
+        run: |
+          pip install robotframework
+          pip install robotframework-seleniumlibrary
+          pip install -r requirements.txt
+
+      # Step 8: Run Robot Framework E2E tests
+      - name: Run Robot Framework E2E tests
+        run: |
+          robot --outputdir results e2e_tests/
+
+      # Step 9: Archive Cucumber and Robot Framework test results
+      - name: Archive test results
+        uses: actions/upload-artifact@v3
+        with:
+          name: test-results
+          path: |
+            target/surefire-reports   # Cucumber test results (JUnit reports are often stored here)
+            results/                 # Robot Framework results
