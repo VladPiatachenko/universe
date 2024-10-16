@@ -29,11 +29,14 @@ jobs:
       - name: Install dependencies without tests
         run: mvn install -DskipTests
 
-      # Step 4: Install Chrome (latest version)
-      - name: Install Chrome
-        run: choco install googlechrome -y
-        shell: cmd
-
+      # Step 4: Install Google Chrome (latest version)
+      - name: Install Google Chrome
+        run: |
+          $chromeInstaller = "https://dl.google.com/chrome/install/latest/chrome_installer.exe"
+          $outputPath = "$env:TEMP\chrome_installer.exe"
+          Invoke-WebRequest -Uri $chromeInstaller -OutFile $outputPath
+          Start-Process -FilePath $outputPath -ArgumentList "/silent /install" -Wait
+          Remove-Item $outputPath
 
       # Step 5: Install WebDriverManager (for managing ChromeDriver)
       - name: Install WebDriverManager dependencies
