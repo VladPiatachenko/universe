@@ -81,7 +81,7 @@ public class e2eStepdefs {
 
     @And("I should see message {string} and {string} and {string}")
     public void iShouldSeeMessageAs(String message1, String message2, String button) {
-        WebDriverWait wait = new WebDriverWait(driver, 3);
+        WebDriverWait wait = new WebDriverWait(driver, 3L);
         WebElement alertElement = wait.until(ExpectedConditions.visibilityOfElementLocated(By.className("alert")));
 
         WebElement titleElement = driver.findElement(By.cssSelector(".alert__heading"));
