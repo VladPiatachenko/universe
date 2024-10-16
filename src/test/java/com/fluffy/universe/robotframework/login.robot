@@ -93,4 +93,4 @@ Verify Invalid Email Error
 
 # Verification for incorrect password error
 Verify Incorrect Password Error
-    Wait Until Page Contains  ${INCORRECT_PASSWORD_ERROR}
+    Wait Until Page Contains  ${INVALID_PASSWORD_ERROR}
