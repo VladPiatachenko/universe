@@ -29,10 +29,11 @@ jobs:
       - name: Install dependencies without tests
         run: mvn install -DskipTests
 
-      # Step 4: Install Chrome (Ensure latest version)
+      # Step 4: Install Chrome (latest version)
       - name: Install Chrome
-        run: choco install googlechrome --version=latest
+        run: choco install googlechrome -y
         shell: cmd
+
 
       # Step 5: Install WebDriverManager (for managing ChromeDriver)
       - name: Install WebDriverManager dependencies
