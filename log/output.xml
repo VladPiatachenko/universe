@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 6.0.2 (Python 3.11.0 on win32)" generated="20241015 16:46:15.225" rpa="false" schemaversion="3">
+<robot generator="Robot 6.0.2 (Python 3.11.0 on win32)" generated="20241016 18:51:11.782" rpa="false" schemaversion="3">
 <suite id="s1" name="Login" source="E:\erlkonig\universe-blog\src\test\java\com\fluffy\universe\robotframework\login.robot">
 <test id="s1-t1" name="Login" line="28">
 <kw name="Valid Login">
@@ -7,193 +7,77 @@
 <arg>${LOGIN URL}</arg>
 <arg>${BROWSER}</arg>
 <doc>Opens a new browser instance to the optional ``url``.</doc>
-<msg timestamp="20241015 16:46:15.849" level="INFO">Opening browser 'Chrome' to base url 'http://127.0.0.1:7000/sign-in'.</msg>
-<status status="PASS" starttime="20241015 16:46:15.848" endtime="20241015 16:46:18.517"/>
+<msg timestamp="20241016 18:51:12.161" level="INFO">Opening browser 'Chrome' to base url 'http://127.0.0.1:7000/sign-in'.</msg>
+<status status="PASS" starttime="20241016 18:51:12.160" endtime="20241016 18:51:14.450"/>
 </kw>
 <kw name="Maximize Browser Window" library="SeleniumLibrary">
 <doc>Maximizes current browser window.</doc>
-<status status="PASS" starttime="20241015 16:46:18.517" endtime="20241015 16:46:18.579"/>
+<status status="PASS" starttime="20241016 18:51:14.450" endtime="20241016 18:51:14.486"/>
 </kw>
 <kw name="Input Credentials">
 <kw name="Input Text" library="SeleniumLibrary">
 <arg>${EMAIL_INPUT}</arg>
 <arg>${VALID_EMAIL}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<msg timestamp="20241015 16:46:18.582" level="INFO">Typing text 'potter@hogwarts.uk' into text field 'xpath://*[@id="sign-in__email"]'.</msg>
-<status status="PASS" starttime="20241015 16:46:18.580" endtime="20241015 16:46:18.944"/>
+<msg timestamp="20241016 18:51:14.488" level="INFO">Typing text 'potter@hogwarts.uk' into text field 'xpath://*[@id="sign-in__email"]'.</msg>
+<status status="PASS" starttime="20241016 18:51:14.487" endtime="20241016 18:51:14.662"/>
 </kw>
 <kw name="Input Text" library="SeleniumLibrary">
 <arg>${PASSWORD_INPUT}</arg>
 <arg>${VALID_PASS}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<msg timestamp="20241015 16:46:18.946" level="INFO">Typing text 'Password1!' into text field 'xpath://*[@id="sign-in__password"]'.</msg>
-<status status="PASS" starttime="20241015 16:46:18.945" endtime="20241015 16:46:19.097"/>
+<msg timestamp="20241016 18:51:14.663" level="INFO">Typing text 'Password1!' into text field 'xpath://*[@id="sign-in__password"]'.</msg>
+<status status="PASS" starttime="20241016 18:51:14.663" endtime="20241016 18:51:14.768"/>
 </kw>
-<status status="PASS" starttime="20241015 16:46:18.580" endtime="20241015 16:46:19.097"/>
+<status status="PASS" starttime="20241016 18:51:14.486" endtime="20241016 18:51:14.768"/>
 </kw>
 <kw name="Submit Form">
 <kw name="Click Element" library="SeleniumLibrary">
 <arg>${SIGN_IN_BUTTON}</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<msg timestamp="20241015 16:46:19.098" level="INFO">Clicking element 'xpath:/html/body/div[1]/main/div/form/div[5]/div/button'.</msg>
-<status status="PASS" starttime="20241015 16:46:19.098" endtime="20241015 16:46:19.427"/>
+<msg timestamp="20241016 18:51:14.769" level="INFO">Clicking element 'xpath:/html/body/div[1]/main/div/form/div[5]/div/button'.</msg>
+<status status="PASS" starttime="20241016 18:51:14.769" endtime="20241016 18:51:15.007"/>
 </kw>
-<status status="PASS" starttime="20241015 16:46:19.097" endtime="20241015 16:46:19.427"/>
+<status status="PASS" starttime="20241016 18:51:14.768" endtime="20241016 18:51:15.007"/>
 </kw>
 <kw name="Verify Login Success">
 <kw name="Wait Until Page Contains" library="SeleniumLibrary">
 <arg>${SUCCESS_ELEMENT}</arg>
 <doc>Waits until ``text`` appears on the current page.</doc>
-<status status="PASS" starttime="20241015 16:46:19.428" endtime="20241015 16:46:19.448"/>
+<status status="PASS" starttime="20241016 18:51:15.008" endtime="20241016 18:51:15.086"/>
 </kw>
 <kw name="Click Element" library="SeleniumLibrary">
 <arg>${PROFILE_ICON}</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<msg timestamp="20241015 16:46:19.456" level="INFO">Clicking element 'xpath:/html/body/header/nav/ul/li[2]/div/button/img'.</msg>
-<status status="PASS" starttime="20241015 16:46:19.449" endtime="20241015 16:46:19.653"/>
+<msg timestamp="20241016 18:51:15.087" level="INFO">Clicking element 'xpath:/html/body/header/nav/ul/li[2]/div/button/img'.</msg>
+<status status="PASS" starttime="20241016 18:51:15.086" endtime="20241016 18:51:15.157"/>
 </kw>
-<status status="PASS" starttime="20241015 16:46:19.428" endtime="20241015 16:46:19.654"/>
+<status status="PASS" starttime="20241016 18:51:15.007" endtime="20241016 18:51:15.157"/>
 </kw>
 <kw name="Take Screenshot" library="Screenshot">
 <doc>Takes a screenshot in JPEG format and embeds it into the log file.</doc>
-<msg timestamp="20241015 16:46:19.774" level="INFO" html="true">&lt;a href="../src/test/resources/screenshots/screenshot_11.jpg"&gt;&lt;img src="../src/test/resources/screenshots/screenshot_11.jpg" width="800px"&gt;&lt;/a&gt;</msg>
-<status status="PASS" starttime="20241015 16:46:19.654" endtime="20241015 16:46:19.775"/>
+<msg timestamp="20241016 18:51:15.223" level="INFO" html="true">&lt;a href="../src/test/resources/screenshots/screenshot_16.jpg"&gt;&lt;img src="../src/test/resources/screenshots/screenshot_16.jpg" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20241016 18:51:15.158" endtime="20241016 18:51:15.223"/>
 </kw>
 <kw name="Close All Browsers" library="SeleniumLibrary" type="TEARDOWN">
 <doc>Closes all open browsers and resets the browser cache.</doc>
-<status status="PASS" starttime="20241015 16:46:19.802" endtime="20241015 16:46:26.104"/>
+<status status="PASS" starttime="20241016 18:51:15.237" endtime="20241016 18:51:21.520"/>
 </kw>
-<status status="PASS" starttime="20241015 16:46:15.847" endtime="20241015 16:46:26.104"/>
+<status status="PASS" starttime="20241016 18:51:12.160" endtime="20241016 18:51:21.520"/>
 </kw>
 <doc>Test valid login</doc>
-<status status="PASS" starttime="20241015 16:46:15.846" endtime="20241015 16:46:26.105"/>
+<status status="PASS" starttime="20241016 18:51:12.159" endtime="20241016 18:51:21.520"/>
 </test>
-<test id="s1-t2" name="Login With Invalid Email Format" line="33">
-<kw name="Open Browser" library="SeleniumLibrary">
-<arg>${LOGIN URL}</arg>
-<arg>${BROWSER}</arg>
-<doc>Opens a new browser instance to the optional ``url``.</doc>
-<msg timestamp="20241015 16:46:26.107" level="INFO">Opening browser 'Chrome' to base url 'http://127.0.0.1:7000/sign-in'.</msg>
-<status status="PASS" starttime="20241015 16:46:26.107" endtime="20241015 16:46:29.452"/>
-</kw>
-<kw name="Maximize Browser Window" library="SeleniumLibrary">
-<doc>Maximizes current browser window.</doc>
-<status status="PASS" starttime="20241015 16:46:29.452" endtime="20241015 16:46:29.566"/>
-</kw>
-<kw name="Input Credentials Invalid Email">
-<kw name="Input Text" library="SeleniumLibrary">
-<arg>${EMAIL_INPUT}</arg>
-<arg>invalid@email.ml</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<msg timestamp="20241015 16:46:29.569" level="INFO">Typing text 'invalid@email.ml' into text field 'xpath://*[@id="sign-in__email"]'.</msg>
-<status status="PASS" starttime="20241015 16:46:29.567" endtime="20241015 16:46:29.870"/>
-</kw>
-<kw name="Input Text" library="SeleniumLibrary">
-<arg>${PASSWORD_INPUT}</arg>
-<arg>${VALID_PASS}</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<msg timestamp="20241015 16:46:29.873" level="INFO">Typing text 'Password1!' into text field 'xpath://*[@id="sign-in__password"]'.</msg>
-<status status="PASS" starttime="20241015 16:46:29.871" endtime="20241015 16:46:29.980"/>
-</kw>
-<status status="PASS" starttime="20241015 16:46:29.566" endtime="20241015 16:46:29.980"/>
-</kw>
-<kw name="Submit Form">
-<kw name="Click Element" library="SeleniumLibrary">
-<arg>${SIGN_IN_BUTTON}</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<msg timestamp="20241015 16:46:29.982" level="INFO">Clicking element 'xpath:/html/body/div[1]/main/div/form/div[5]/div/button'.</msg>
-<status status="PASS" starttime="20241015 16:46:29.981" endtime="20241015 16:46:30.288"/>
-</kw>
-<status status="PASS" starttime="20241015 16:46:29.980" endtime="20241015 16:46:30.289"/>
-</kw>
-<kw name="Verify Invalid Email Error">
-<kw name="Wait Until Page Contains" library="SeleniumLibrary">
-<arg>${INVALID_EMAIL_ERROR}</arg>
-<doc>Waits until ``text`` appears on the current page.</doc>
-<status status="PASS" starttime="20241015 16:46:30.290" endtime="20241015 16:46:30.346"/>
-</kw>
-<status status="PASS" starttime="20241015 16:46:30.289" endtime="20241015 16:46:30.347"/>
-</kw>
-<kw name="Take Screenshot" library="Screenshot">
-<doc>Takes a screenshot in JPEG format and embeds it into the log file.</doc>
-<msg timestamp="20241015 16:46:30.404" level="INFO" html="true">&lt;a href="../src/test/resources/screenshots/screenshot_12.jpg"&gt;&lt;img src="../src/test/resources/screenshots/screenshot_12.jpg" width="800px"&gt;&lt;/a&gt;</msg>
-<status status="PASS" starttime="20241015 16:46:30.348" endtime="20241015 16:46:30.404"/>
-</kw>
-<kw name="Close All Browsers" library="SeleniumLibrary" type="TEARDOWN">
-<doc>Closes all open browsers and resets the browser cache.</doc>
-<status status="PASS" starttime="20241015 16:46:30.405" endtime="20241015 16:46:36.650"/>
-</kw>
-<doc>Attempt login with an improperly formatted email address.</doc>
-<status status="PASS" starttime="20241015 16:46:26.105" endtime="20241015 16:46:36.651"/>
-</test>
-<test id="s1-t3" name="Login With Incorrect Password" line="44">
-<kw name="Open Browser" library="SeleniumLibrary">
-<arg>${LOGIN URL}</arg>
-<arg>${BROWSER}</arg>
-<doc>Opens a new browser instance to the optional ``url``.</doc>
-<msg timestamp="20241015 16:46:36.652" level="INFO">Opening browser 'Chrome' to base url 'http://127.0.0.1:7000/sign-in'.</msg>
-<status status="PASS" starttime="20241015 16:46:36.652" endtime="20241015 16:46:39.262"/>
-</kw>
-<kw name="Maximize Browser Window" library="SeleniumLibrary">
-<doc>Maximizes current browser window.</doc>
-<status status="PASS" starttime="20241015 16:46:39.262" endtime="20241015 16:46:39.318"/>
-</kw>
-<kw name="Input Credentials Invalid Password">
-<kw name="Input Text" library="SeleniumLibrary">
-<arg>${EMAIL_INPUT}</arg>
-<arg>${VALID_EMAIL}</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<msg timestamp="20241015 16:46:39.320" level="INFO">Typing text 'potter@hogwarts.uk' into text field 'xpath://*[@id="sign-in__email"]'.</msg>
-<status status="PASS" starttime="20241015 16:46:39.319" endtime="20241015 16:46:39.736"/>
-</kw>
-<kw name="Input Text" library="SeleniumLibrary">
-<arg>${PASSWORD_INPUT}</arg>
-<arg>wrongpassword123</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<msg timestamp="20241015 16:46:39.737" level="INFO">Typing text 'wrongpassword123' into text field 'xpath://*[@id="sign-in__password"]'.</msg>
-<status status="PASS" starttime="20241015 16:46:39.736" endtime="20241015 16:46:39.848"/>
-</kw>
-<status status="PASS" starttime="20241015 16:46:39.318" endtime="20241015 16:46:39.848"/>
-</kw>
-<kw name="Submit Form">
-<kw name="Click Element" library="SeleniumLibrary">
-<arg>${SIGN_IN_BUTTON}</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<msg timestamp="20241015 16:46:39.849" level="INFO">Clicking element 'xpath:/html/body/div[1]/main/div/form/div[5]/div/button'.</msg>
-<status status="PASS" starttime="20241015 16:46:39.849" endtime="20241015 16:46:40.164"/>
-</kw>
-<status status="PASS" starttime="20241015 16:46:39.848" endtime="20241015 16:46:40.165"/>
-</kw>
-<kw name="Verify Incorrect Password Error">
-<kw name="Wait Until Page Contains" library="SeleniumLibrary">
-<arg>${INCORRECT_PASSWORD_ERROR}</arg>
-<doc>Waits until ``text`` appears on the current page.</doc>
-<msg timestamp="20241015 16:46:40.167" level="FAIL">Variable '${INCORRECT_PASSWORD_ERROR}' not found.</msg>
-<status status="FAIL" starttime="20241015 16:46:40.166" endtime="20241015 16:46:40.168"/>
-</kw>
-<status status="FAIL" starttime="20241015 16:46:40.165" endtime="20241015 16:46:40.168"/>
-</kw>
-<kw name="Take Screenshot" library="Screenshot">
-<doc>Takes a screenshot in JPEG format and embeds it into the log file.</doc>
-<status status="NOT RUN" starttime="20241015 16:46:40.168" endtime="20241015 16:46:40.168"/>
-</kw>
-<kw name="Close All Browsers" library="SeleniumLibrary" type="TEARDOWN">
-<doc>Closes all open browsers and resets the browser cache.</doc>
-<status status="PASS" starttime="20241015 16:46:40.168" endtime="20241015 16:46:46.389"/>
-</kw>
-<doc>Attempt login with the correct email but an incorrect password.</doc>
-<status status="FAIL" starttime="20241015 16:46:36.651" endtime="20241015 16:46:46.390">Variable '${INCORRECT_PASSWORD_ERROR}' not found.</status>
-</test>
-<status status="FAIL" starttime="20241015 16:46:15.231" endtime="20241015 16:46:46.390"/>
+<status status="PASS" starttime="20241016 18:51:11.785" endtime="20241016 18:51:21.521"/>
 </suite>
 <statistics>
 <total>
-<stat pass="2" fail="1" skip="0">All Tests</stat>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
 </total>
 <tag>
 </tag>
 <suite>
-<stat pass="2" fail="1" skip="0" id="s1" name="Login">Login</stat>
+<stat pass="1" fail="0" skip="0" id="s1" name="Login">Login</stat>
 </suite>
 </statistics>
 <errors>

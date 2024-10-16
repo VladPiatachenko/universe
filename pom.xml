@@ -167,6 +167,17 @@
             <artifactId>cucumber-java8</artifactId>
             <version>7.8.1</version>
         </dependency>
+        <dependency>
+            <groupId>org.seleniumhq.selenium</groupId>
+            <artifactId>selenium-java</artifactId>
+            <version>4.11.0</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.apache.httpcomponents</groupId>
+                    <artifactId>httpclient</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
 
         <!-- Selenide for Browser Automation Testing -->
         <dependency>
@@ -176,24 +187,13 @@
             <scope>test</scope>
         </dependency>
 
-        <!-- WebDriverManager for Selenium -->
-        <dependency>
-            <groupId>io.github.bonigarcia</groupId>
-            <artifactId>webdrivermanager</artifactId>
-            <version>5.0.3</version>
-        </dependency>
-
         <!-- Jackson Databind for JSON -->
         <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-databind</artifactId>
             <version>2.14.1</version>
         </dependency>
-        <dependency>
-            <groupId>io.github.bonigarcia</groupId>
-            <artifactId>webdrivermanager</artifactId>
-            <version>5.0.3</version>
-        </dependency>
+
     </dependencies>
 
     <build>

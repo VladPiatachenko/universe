@@ -12,6 +12,7 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import io.github.bonigarcia.wdm.WebDriverManager;
 import io.javalin.Javalin;
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.*;
@@ -30,14 +31,16 @@ import java.util.Map;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class e2eStepdefs {
-    WebDriver driver;
+    private static WebDriver driver;
     private static Map<String, String> selectors;
     String currentemail;
 
     void prepareInputs() {
         ChromeOptions options = new ChromeOptions();
-        System.setProperty("webdriver.chrome.driver", "chromedriver.exe");
         options.addArguments("--remote-allow-origins=*");
+        options.addArguments("--headless");
+        options.addArguments("--no-sandbox");
+        options.addArguments("--disable-dev-shm-usage");
         driver = new ChromeDriver(options);
         ObjectMapper objectMapper = new ObjectMapper();
         try {
@@ -48,11 +51,6 @@ public class e2eStepdefs {
         currentemail="";
     }
 
-
-    @Before
-    public void setUp() {
-        System.setProperty("webdriver.http.factory", "jdk-http-client");
-    }
 
     @Given("I navigate to the {string} page")
     public void iNavigateToThePage(String page) {
