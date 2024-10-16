@@ -11,53 +11,44 @@ on:
 
 jobs:
   e2e-tests:
-    runs-on: windows-latest  # Use Windows environment
+    runs-on: windows-latest
 
     steps:
-      # Step 1: Checkout the code
+      # Step 1: Checkout code
       - name: Checkout code
         uses: actions/checkout@v3
 
-      # Step 2: Set up Java 19 (to match the target release)
+      # Step 2: Set up Java 19
       - name: Set up Java 19
-        uses: actions/setup-java@v3
-        with:
-          distribution: 'temurin'  # Eclipse Temurin distribution
-          java-version: '19'
-
-      - name: Set up Maven
         uses: actions/setup-java@v3
         with:
           distribution: 'temurin'
           java-version: '19'
-          cache: 'maven'
 
       # Step 3: Install dependencies without running tests
       - name: Install dependencies without tests
         run: mvn install -DskipTests
 
-      # Step 4: Verify files in the workspace (for debugging purposes)
-      - name: List project root directory
-        run: |
-          dir ${{ github.workspace }}
+      # Step 4: Install Chrome (Ensure latest version)
+      - name: Install Chrome
+        run: choco install googlechrome --version=latest
+        shell: cmd
 
-      # Step 5: Set up SQLite without schema.sql (since it's missing)
-      - name: Set up SQLite on Windows
-        run: |
-          $env:Path += ";${{ github.workspace }}"
-          .\sqlite3.exe ${{ github.workspace }}\\universe.db ".tables"  # This lists tables in the DB
+      # Step 5: Install WebDriverManager (for managing ChromeDriver)
+      - name: Install WebDriverManager dependencies
+        run: mvn dependency:resolve
 
-      # Step 6: Start the Java application
+      # Step 6: Run the Java application
       - name: Run the Java application
         run: |
           mvn spring-boot:run &
 
-      # Step 7: Run Cucumber + Selenium tests after the app and database are ready
+      # Step 7: Run Selenium + Cucumber tests
       - name: Run Cucumber + Selenium tests
         run: |
-          mvn test
+          mvn test -Dselenium.chrome.options="--headless,--no-sandbox,--disable-dev-shm-usage"
 
-      # Step 8: Set up Python for Robot Framework tests
+      # Step 8: Set up Python for Robot Framework
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
@@ -74,11 +65,11 @@ jobs:
         run: |
           robot --outputdir results e2e_tests/
 
-      # Step 10: Archive Cucumber and Robot Framework test results
+      # Step 10: Archive test results
       - name: Archive test results
         uses: actions/upload-artifact@v3
         with:
           name: test-results
           path: |
-            target/surefire-reports   # Cucumber test results (JUnit reports are often stored here)
-            results/                 # Robot Framework results
+            target/surefire-reports
+            results/
