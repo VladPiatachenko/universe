@@ -37,6 +37,7 @@ public class e2eStepdefs {
     void prepareInputs() {
         ChromeOptions options = new ChromeOptions();
         System.setProperty("webdriver.chrome.driver", "chromedriver.exe");
+        options.addArguments("--remote-allow-origins=*");
         driver = new ChromeDriver(options);
         ObjectMapper objectMapper = new ObjectMapper();
         try {

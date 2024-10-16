@@ -35,6 +35,7 @@ public class Profilee2eTest {
     @BeforeEach
     void BackgroundPrep(){
         ChromeOptions options = new ChromeOptions();
+        options.addArguments("--remote-allow-origins=*");
         driver = new ChromeDriver(options);
         driver.get(loginUrl);
         driver.findElement(By.id("sign-in__email")).sendKeys(testEmail);
