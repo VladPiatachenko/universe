@@ -24,7 +24,7 @@ Feature: Registration
       | aassdf.asdff017 | abcd.efgh | aassdff11.asdf@example.com | Asdf@1234 | Asdf@1234        |
 
   @FailedRegistration
-  Scenario Outline: Disabled Registration when one of the required fields is left blank
+Scenario Outline: Disabled Registration when one of the required fields is left blank
     When I fill in "first-name" with "<first-name>"
     And I fill in "last-name" with "<last-name>"
     And I fill in "email" with "<email>"

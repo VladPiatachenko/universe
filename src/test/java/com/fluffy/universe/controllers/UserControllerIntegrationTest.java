@@ -25,7 +25,7 @@ public class UserControllerIntegrationTest {
     private String testUserEmail;
 
     @BeforeEach
-    public static void setup() {
+    public void setup() {
         Configuration.load(new File("application.properties"));
 
         // Create SQLite connection

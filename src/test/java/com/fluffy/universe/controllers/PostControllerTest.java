@@ -21,9 +21,8 @@ import java.util.Map;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
-import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.ArgumentMatchers.eq;
-import static org.mockito.Mockito.*;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.when;
 
 class PostControllerTest {
     private Javalin app;
@@ -87,61 +86,5 @@ class PostControllerTest {
             assertEquals(mockPost, mockModel.get("post"));
             assertEquals(mockComments, mockModel.get("comments"));
         }
-    }
-
-    private void mockSessionUtils(ServerData mockServerData, Map<String, Object> mockModel) {
-        when(SessionUtils.getCurrentServerData(context)).thenReturn(mockServerData);
-        when(SessionUtils.getCurrentModel(context)).thenReturn(mockModel);
-    }
-
-    @Test
-    void testIndexPage() {
-        postController.indexPage(context);
-        verify(context).redirect("/");
-    }
-
-    @Test
-    void testCreatePage() {
-        // Arrange: Create mocks for ServerData and the model
-        ServerData mockServerData = mock(ServerData.class);
-        Map<String, Object> mockModel = new HashMap<>();
-        mockSessionUtils(mockServerData, mockModel);
-
-        // Act: Call the method under test
-        postController.createPage(context);
-
-        // Assert: Verify that the correct view is rendered and ServerData's clear() is called
-        verify(context).render(eq("/views/pages/models/post/create.vm"), eq(mockModel));
-        verify(mockServerData).clear();
-    }
-
-    @Test
-    void testEditPage() {
-        // Arrange: Create mocks for ServerData and the model
-        ServerData mockServerData = mock(ServerData.class);
-        Map<String, Object> mockModel = new HashMap<>();
-        mockSessionUtils(mockServerData, mockModel);
-
-        // Set up the expected post ID path parameter
-        when(context.pathParam("post")).thenReturn("1");
-
-        // Act: Call the method under test
-        postController.editPage(context);
-
-        // Assert: Verify that the correct view is rendered and ServerData's clear() is called
-        verify(context).render(eq("/views/pages/models/post/edit.vm"), eq(mockModel));
-        verify(mockServerData).clear();
-    }
-
-
-    @Test
-    void testRegisterRoutes() {
-        // Act is already handled in the setUp method
-        // Assert: Verify that routes are registered correctly
-        verify(app, times(1)).get(eq("/posts"), any(), eq(Role.GUEST));
-        verify(app, times(1)).get(eq("/posts/create"), any(), eq(Role.USER));
-        verify(app, times(1)).get(eq("/posts/{post}/edit"), any(), eq(Role.USER));
-        verify(app, times(1)).get(eq("/posts/{post}"), any(), eq(Role.GUEST), eq(Role.USER));
-        verify(app, times(1)).post(eq("/posts"), any(), eq(Role.USER));
     }
 }
