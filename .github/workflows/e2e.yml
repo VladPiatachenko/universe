@@ -36,22 +36,16 @@ jobs:
       - name: Install dependencies without tests
         run: mvn install -DskipTests
 
-      # Step 4: Set up SQLite on Windows
-      - name: Set up SQLite on Windows
-        run: |
-          $env:Path += ";${{ github.workspace }}"
-          .\sqlite3.exe ${{ github.workspace }}\universe.db ".read ${{ github.workspace }}\schema.sql"
-
-      # Step 5: Start the Java application
+      # Step 4: Start the Java application
       - name: Run the Java application
         run: |
           mvn spring-boot:run &
 
-      # Step 6: **Fixed the test step by removing the incorrect options**
+      # Step 5: Run Cucumber + Selenium tests after the app and database are ready
       - name: Run Cucumber + Selenium tests
         run: mvn test
 
-      # Step 7: Set up Python for Robot Framework tests
+      # Step 6: Set up Python for Robot Framework tests
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
@@ -63,12 +57,12 @@ jobs:
           pip install robotframework-seleniumlibrary
           pip install -r requirements.txt
 
-      # Step 8: Run Robot Framework E2E tests
+      # Step 7: Run Robot Framework E2E tests
       - name: Run Robot Framework E2E tests
         run: |
           robot --outputdir results e2e_tests/
 
-      # Step 9: Archive Cucumber and Robot Framework test results
+      # Step 8: Archive Cucumber and Robot Framework test results
       - name: Archive test results
         uses: actions/upload-artifact@v3
         with:
