@@ -37,52 +37,54 @@ jobs:
       - name: Install dependencies without tests
         run: mvn install -DskipTests
 
-      # Step 5: Set up SQLite on Windows
-      - name: Set up SQLite
+      # Step 5: Ensure SQLite DB exists in the correct location
+      - name: Verify universe.db location
         run: |
-          $env:Path += ";${{ github.workspace }}"  # Add workspace to PATH
-          # Check if the universe.db exists in the root of the workspace
-          if (Test-Path "$env:WORKSPACE\universe.db") {
+          $env:Path += ";${{ github.workspace }}"
+          if (Test-Path "${{ github.workspace }}\universe.db") {
               Write-Host "Database exists, ready to use."
-              # Run SQLite commands
-              .\sqlite3.exe "$env:WORKSPACE\universe.db" ".read your_sql_script.sql"  # Replace with actual script if needed
           } else {
-              Write-Host "Database does not exist at $env:WORKSPACE\universe.db!"
+              Write-Host "Database does not exist at ${{ github.workspace }}\universe.db!"
               exit 1
           }
 
-      # Step 6: Start the Java application with application.properties
-      - name: Start the Java application
-        run: |
-          java -jar target/your-application.jar --spring.config.location=${{ github.workspace }}\application.properties &
+      # Step 6: Package the JAR
+      - name: Package the JAR
+        run: mvn clean package
 
-      # Step 7: Wait for the application to start (you may adjust the time)
+      # Step 7: Start the Java application
+      - name: Run the Java application
+        run: |
+          java -jar target/universe-1.0-SNAPSHOT.jar --spring.config.location=${{ github.workspace }}\application.properties &
+
+      # Step 8: Wait for the application to start (you may adjust the time)
       - name: Wait for the application to start
         run: Start-Sleep -Seconds 30
 
-      # Step 8: Run Cucumber + Selenium tests
+      # Step 9: Run Cucumber + Selenium tests after the app and database are ready
       - name: Run Cucumber + Selenium tests
         run: |
-          mvn test -Dselenium.chrome.options="--headless,--no-sandbox,--disable-dev-shm-usage"
+          mvn test
 
-      # Step 9: Set up Python for Robot Framework tests
+      # Step 10: Set up Python for Robot Framework tests
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
           python-version: '3.x'
 
+      # Step 11: Install Robot Framework and dependencies
       - name: Install Robot Framework and dependencies
         run: |
           pip install robotframework
           pip install robotframework-seleniumlibrary
           pip install -r requirements.txt
 
-      # Step 10: Run Robot Framework E2E tests
+      # Step 12: Run Robot Framework E2E tests
       - name: Run Robot Framework E2E tests
         run: |
           robot --outputdir results e2e_tests/
 
-      # Step 11: Archive Cucumber and Robot Framework test results
+      # Step 13: Archive Cucumber and Robot Framework test results
       - name: Archive test results
         uses: actions/upload-artifact@v3
         with:
