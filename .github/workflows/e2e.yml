@@ -65,7 +65,7 @@ jobs:
       # Step 8: Start the Java application
       - name: Run the Java application
         run: |
-          java -jar target/universe-1.0-SNAPSHOT.jar --spring.config.location=${{ github.workspace }}\application.properties &
+          Start-Process java -ArgumentList '-jar', 'target/universe-1.0-SNAPSHOT.jar', '--spring.config.location=${{ github.workspace }}\application.properties' -PassThru | Out-Null
 
       # Step 9: Wait for the application to start (you may adjust the time)
       - name: Wait for the application to start
