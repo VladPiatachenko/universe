@@ -37,7 +37,17 @@ jobs:
       - name: Install dependencies without tests
         run: mvn install -DskipTests
 
-      # Step 5: Ensure SQLite DB exists in the correct location
+      # Step 5: Debugging step - Print current directory and list files
+      - name: Print working directory and list files
+        run: |
+          Write-Host "Current working directory:"
+          Get-Location
+          Write-Host "Listing root directory contents:"
+          Get-ChildItem -Path D:\a
+          Write-Host "Listing workspace contents:"
+          Get-ChildItem -Path ${{ github.workspace }}
+
+      # Step 6: Ensure SQLite DB exists in the correct location
       - name: Verify universe.db location
         run: |
           $env:Path += ";${{ github.workspace }}"
@@ -48,43 +58,43 @@ jobs:
               exit 1
           }
 
-      # Step 6: Package the JAR
+      # Step 7: Package the JAR
       - name: Package the JAR
         run: mvn clean package
 
-      # Step 7: Start the Java application
+      # Step 8: Start the Java application
       - name: Run the Java application
         run: |
           java -jar target/universe-1.0-SNAPSHOT.jar --spring.config.location=${{ github.workspace }}\application.properties &
 
-      # Step 8: Wait for the application to start (you may adjust the time)
+      # Step 9: Wait for the application to start (you may adjust the time)
       - name: Wait for the application to start
         run: Start-Sleep -Seconds 30
 
-      # Step 9: Run Cucumber + Selenium tests after the app and database are ready
+      # Step 10: Run Cucumber + Selenium tests after the app and database are ready
       - name: Run Cucumber + Selenium tests
         run: |
           mvn test
 
-      # Step 10: Set up Python for Robot Framework tests
+      # Step 11: Set up Python for Robot Framework tests
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
           python-version: '3.x'
 
-      # Step 11: Install Robot Framework and dependencies
+      # Step 12: Install Robot Framework and dependencies
       - name: Install Robot Framework and dependencies
         run: |
           pip install robotframework
           pip install robotframework-seleniumlibrary
           pip install -r requirements.txt
 
-      # Step 12: Run Robot Framework E2E tests
+      # Step 13: Run Robot Framework E2E tests
       - name: Run Robot Framework E2E tests
         run: |
           robot --outputdir results e2e_tests/
 
-      # Step 13: Archive Cucumber and Robot Framework test results
+      # Step 14: Archive Cucumber and Robot Framework test results
       - name: Archive test results
         uses: actions/upload-artifact@v3
         with:
