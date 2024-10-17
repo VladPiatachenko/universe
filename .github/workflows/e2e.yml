@@ -18,87 +18,51 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
 
-      # Step 2: Set up Java 19 (to match the target release)
+      # Step 2: Set up Java 19
       - name: Set up Java 19
-        uses: actions/setup-java@v3
-        with:
-          distribution: 'temurin'  # Eclipse Temurin distribution
-          java-version: '19'
-
-      # Step 3: Set up Maven
-      - name: Set up Maven
         uses: actions/setup-java@v3
         with:
           distribution: 'temurin'
           java-version: '19'
-          cache: 'maven'
 
-      # Step 4: Install dependencies without running tests
+      # Step 3: Install dependencies without running tests
       - name: Install dependencies without tests
         run: mvn install -DskipTests
 
-      # Step 5: Debugging step - Print current directory and list files
-      - name: Print working directory and list files
+      # Step 4: Start the Javalin application with the properties file
+      - name: Start Javalin Application
         run: |
-          Write-Host "Current working directory:"
-          Get-Location
-          Write-Host "Listing root directory contents:"
-          Get-ChildItem -Path D:\a
-          Write-Host "Listing workspace contents:"
-          Get-ChildItem -Path ${{ github.workspace }}
+          java -cp target/classes com.fluffy.universe.Main --config=${{ github.workspace }}\application.properties &
 
-      # Step 6: Ensure SQLite DB exists in the correct location
-      - name: Verify universe.db location
-        run: |
-          $env:Path += ";${{ github.workspace }}"
-          if (Test-Path "${{ github.workspace }}\universe.db") {
-              Write-Host "Database exists, ready to use."
-          } else {
-              Write-Host "Database does not exist at ${{ github.workspace }}\universe.db!"
-              exit 1
-          }
-
-      # Step 7: Package the JAR
-      - name: Package the JAR
-        run: mvn clean package
-
-      # Step 8: Start the Java application
-      - name: Run the Java application
-        run: |
-          Start-Process java -ArgumentList '-jar', 'target/universe-1.0-SNAPSHOT.jar', '--spring.config.location=${{ github.workspace }}\application.properties' -PassThru | Out-Null
-
-      # Step 9: Wait for the application to start (you may adjust the time)
+      # Step 5: Wait for the application to start
       - name: Wait for the application to start
         run: Start-Sleep -Seconds 30
 
-      # Step 10: Run Cucumber + Selenium tests after the app and database are ready
+      # Step 6: Run Cucumber + Selenium tests
       - name: Run Cucumber + Selenium tests
-        run: |
-          mvn test
+        run: mvn test
 
-      # Step 11: Set up Python for Robot Framework tests
+      # Additional steps for Robot Framework tests
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
           python-version: '3.x'
 
-      # Step 12: Install Robot Framework and dependencies
       - name: Install Robot Framework and dependencies
         run: |
           pip install robotframework
           pip install robotframework-seleniumlibrary
           pip install -r requirements.txt
 
-      # Step 13: Run Robot Framework E2E tests
       - name: Run Robot Framework E2E tests
         run: |
           robot --outputdir results e2e_tests/
 
-      # Step 14: Archive Cucumber and Robot Framework test results
+      # Step finale: Archive test results
       - name: Archive test results
         uses: actions/upload-artifact@v3
         with:
           name: test-results
           path: |
-            target/surefire-reports   # Cucumber test results (JUnit reports are often stored here)
-            results/                 # Robot Framework results
+            target/surefire-reports
+            results/
