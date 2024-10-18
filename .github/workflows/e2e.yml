@@ -62,11 +62,6 @@ jobs:
       - name: Run Selenium tests
         run: mvn test
 
-      # Step 10: Run Cucumber + Selenium tests
-      - name: Run Cucumber + Selenium tests
-        run: |
-          xvfb-run -a mvn test
-
       # Step 11: Archive test results
       - name: Archive test results
         uses: actions/upload-artifact@v3
