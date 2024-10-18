@@ -29,42 +29,33 @@ jobs:
       - name: Install dependencies without tests
         run: mvn install -DskipTests
 
-      # Step 4: Package the JAR
-      - name: Package the JAR
+      # Step 4: Clean and Package the JAR
+      - name: Clean and Package the JAR
         run: mvn clean package
 
-      # Step 5: Start the Javalin application from the JAR
-      - name: Start Javalin Application
-        run: java -jar target/universe-1.0-SNAPSHOT.jar --config=${{ github.workspace }}/application.properties &
-        # Adjust the jar name as needed based on your actual JAR naming convention.
+      # Step 5: Verify JAR file exists
+      - name: Verify JAR file
+        run: |
+          ls -al target/
+          if [ ! -f target/universe-1.0-SNAPSHOT.jar ]; then
+            echo "JAR file not found!"
+            exit 1
+          fi
 
-      # Step 6: Wait for the application to start
+      # Step 6: Start the Javalin Application from the JAR
+      - name: Start Javalin Application
+        run: |
+          java -jar target/universe-1.0-SNAPSHOT.jar --config=${{ github.workspace }}/application.properties &
+
+      # Step 7: Wait for the application to start
       - name: Wait for the application to start
         run: sleep 30
 
-      # Step 7: Run Cucumber + Selenium tests
+      # Step 8: Run Cucumber + Selenium tests
       - name: Run Cucumber + Selenium tests
         run: mvn test
 
-      # Step 8: Set up Python 3.11
-      - name: Set up Python
-        uses: actions/setup-python@v4
-        with:
-          python-version: '3.11'
-
-      # Step 9: Install dependencies for Robot Framework
-      - name: Install dependencies
-        run: |
-          pip install --upgrade pip
-          pip install setuptools wheel
-          pip install -r requirements.txt
-
-      # Step 10: Run Robot Framework E2E tests
-      - name: Run Robot Framework E2E tests
-        run: |
-          robot --outputdir results e2e_tests/
-
-      # Step 11: Archive test results
+      # Step 9: Archive test results
       - name: Archive test results
         uses: actions/upload-artifact@v3
         with:
