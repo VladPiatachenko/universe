@@ -38,7 +38,7 @@ public class Profilee2eTest {
     @BeforeEach
     void BackgroundPrep(){
         ChromeOptions options = new ChromeOptions();
-        options.addArguments("--headless"); // Run in headless mode
+        //options.addArguments("--headless"); // Run in headless mode
         options.addArguments("--no-sandbox"); // Bypass OS security model
         options.addArguments("--disable-dev-shm-usage"); // Overcome limited resource problems
         options.addArguments("--remote-allow-origins=*"); // Allow remote origins
@@ -106,11 +106,11 @@ public class Profilee2eTest {
         driver.findElement(By.xpath("/html/body/main/div/form/div[8]/button")).click();
         System.out.println("~~~~~~~~~~~~url!~~~~~~~~~~~");
         System.out.println(driver.getCurrentUrl());
-        //WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-        //wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("/html/body/div[2]/div/div[1]/h2")));
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("/html/body/div[2]/div/div[1]/h2")));
         System.out.println("~~~~~~~~~~~~alert!~~~~~~~~~~~");
         System.out.println(driver.findElement(By.xpath("/html/body/div[2]/div/div[1]/h2")).getText());
-        //assertEquals(driver.findElement(By.xpath("/html/body/div[2]/div/div[1]/h2")).getText(),"Congratulations!");
+        assertEquals(driver.findElement(By.xpath("/html/body/div[2]/div/div[1]/h2")).getText(),"Congratulations!");
         assertEquals(driver.findElement(By.xpath("/html/body/div[2]/div/div[2]")).getText(),"User account data updated successfully.");
         File scrFile = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
         FileUtils.copyFile(scrFile, new File("src\\test\\resources\\screenshots\\SuccessfulEditProfile.png"));
