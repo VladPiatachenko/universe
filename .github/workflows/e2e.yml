@@ -26,12 +26,11 @@ jobs:
           java-version: '19'
 
       # Step 3: Install Chrome and necessary libraries
-      - name: Install Chrome and dependencies
+      - name: Install Chrome
         run: |
           sudo apt-get update
           sudo apt-get install -y google-chrome-stable
-          sudo apt-get install -y libnss3 libgconf-2-4 fonts-liberation  # Install additional libraries
-          sudo apt-get install -y xvfb  # Install X virtual framebuffer
+          sudo apt-get install -y xvfb # Install X virtual framebuffer
 
       # Step 4: Install dependencies without running tests
       - name: Install dependencies without tests
@@ -45,31 +44,25 @@ jobs:
       - name: Verify JAR file
         run: |
           ls -al target/
-          if [ ! -f target/universe.jar ]; then  # Corrected the JAR file name here
+          if [ ! -f target/universe.jar ]; then  # Ensure we check for universe.jar
             echo "JAR file not found!"
             exit 1
           fi
 
-      # Step 7: Start Javalin Application from the JAR
+      # Step 7: Start Javalin Application from the JAR with application properties
       - name: Start Javalin Application
         run: |
-          java -jar target/universe.jar &  # Removed application.properties as discussed
-
-      # Step 8: Start Xvfb
-      - name: Start Xvfb
-        run: |
-          Xvfb :99 -ac &
-          export DISPLAY=:99
-
-      # Step 9: Wait for the application to start
+          java -jar target/universe.jar /home/runner/work/universe/universe/application.properties &  
+        
+      # Step 8: Wait for the application to start
       - name: Wait for the application to start
         run: sleep 30
 
-      # Step 10: Run Cucumber + Selenium tests
+      # Step 9: Run Cucumber + Selenium tests
       - name: Run Cucumber + Selenium tests
         run: mvn test
 
-      # Step 11: Archive test results
+      # Step 10: Archive test results
       - name: Archive test results
         uses: actions/upload-artifact@v3
         with:
