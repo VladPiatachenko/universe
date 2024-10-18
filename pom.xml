@@ -232,21 +232,21 @@
 
         <plugins>
             <!-- Maven Jar Plugin -->
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-jar-plugin</artifactId>
-                <version>3.2.0</version>
-                <configuration>
-                    <finalName>universe</finalName>
-                    <archive>
-                        <manifest>
-                            <addClasspath>true</addClasspath>
-                            <classpathPrefix>dependencies/</classpathPrefix>
-                            <mainClass>com.fluffy.universe.Main</mainClass>
-                        </manifest>
-                    </archive>
-                </configuration>
-            </plugin>
+         <plugin>
+                 <groupId>org.apache.maven.plugins</groupId>
+                 <artifactId>maven-jar-plugin</artifactId>
+                 <version>3.2.0</version>
+                 <configuration>
+                     <finalName>universe</finalName> <!-- This will generate universe.jar -->
+                     <archive>
+                         <manifest>
+                             <addClasspath>true</addClasspath>
+                             <classpathPrefix>dependencies/</classpathPrefix>
+                             <mainClass>com.fluffy.universe.Main</mainClass> <!-- Ensure this is correct -->
+                         </manifest>
+                     </archive>
+                 </configuration>
+         </plugin>
 
             <!-- Copy Dependencies -->
             <plugin>
