@@ -69,6 +69,8 @@ public class Profilee2eTest {
         assertEquals(driver.findElement(By.xpath("/html/body/main/div/form/div[1]/h1")).getText(),"Account");
         assertNotEquals(driver.findElement(By.id("account__first-name")).getAttribute("value"),"");
         assertNotEquals(driver.findElement(By.id("account__last-name")).getAttribute("value"),"");
+        System.out.println(driver.getCurrentUrl());
+        System.out.println(driver.findElement(By.id("account__email")).getAttribute("value"));
         assertNotEquals(driver.findElement(By.id("account__email")).getAttribute("value"),"");//negative test on account_address
         driver.close();
     }
@@ -97,6 +99,7 @@ public class Profilee2eTest {
         driver.findElement(By.id("account__address")).sendKeys("E-605");
         driver.findElement(By.id("account__website")).sendKeys("https://example.com");
         driver.findElement(By.xpath("/html/body/main/div/form/div[8]/button")).click();
+        System.out.println(driver.findElement(By.xpath("/html/body/div[2]/div/div[1]/h2")).getText());
         assertEquals(driver.findElement(By.xpath("/html/body/div[2]/div/div[1]/h2")).getText(),"Congratulations!");
         assertEquals(driver.findElement(By.xpath("/html/body/div[2]/div/div[2]")).getText(),"User account data updated successfully.");
         File scrFile = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
