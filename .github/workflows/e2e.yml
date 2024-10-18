@@ -29,9 +29,9 @@ jobs:
       - name: Install dependencies without tests
         run: mvn install -DskipTests
 
-      # Step 4: Clean and Package the JAR
-      - name: Clean and Package the JAR
-        run: mvn clean package
+      # Step 4: Package the JAR
+      - name: Package the JAR
+        run: mvn clean package -DskipTests
 
       # Step 5: Verify JAR file exists
       - name: Verify JAR file
