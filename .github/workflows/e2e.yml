@@ -25,15 +25,22 @@ jobs:
           distribution: 'temurin'
           java-version: '19'
 
-      # Step 3: Install dependencies without running tests
+      # Step 3: Install Chrome and necessary libraries
+      - name: Install Chrome
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y google-chrome-stable
+          sudo apt-get install -y xvfb # Install X virtual framebuffer
+
+      # Step 4: Install dependencies without running tests
       - name: Install dependencies without tests
         run: mvn install -DskipTests
 
-      # Step 4: Package the JAR
+      # Step 5: Package the JAR
       - name: Package the JAR
         run: mvn clean package -DskipTests
 
-      # Step 5: Verify JAR file exists
+      # Step 6: Verify JAR file exists
       - name: Verify JAR file
         run: |
           ls -al target/
@@ -42,20 +49,20 @@ jobs:
             exit 1
           fi
 
-     # Step 6: Start Javalin Application from the JAR
+     # Step 7: Start Javalin Application from the JAR
       - name: Start Javalin Application
         run: |
           java -jar target/universe.jar /home/runner/work/universe/universe/application.properties &  
         
-      # Step 7: Wait for the application to start
+      # Step 8: Wait for the application to start
       - name: Wait for the application to start
         run: sleep 30
 
-      # Step 8: Run Cucumber + Selenium tests
+      # Step 9: Run Cucumber + Selenium tests
       - name: Run Cucumber + Selenium tests
         run: mvn test
 
-      # Step 9: Archive test results
+      # Step 10: Archive test results
       - name: Archive test results
         uses: actions/upload-artifact@v3
         with:
