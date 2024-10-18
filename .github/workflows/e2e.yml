@@ -45,7 +45,7 @@ jobs:
       - name: Verify JAR file
         run: |
           ls -al target/
-          if [ ! -f target/universe-1.0-SNAPSHOT.jar ]; then  # Ensure we check for universe-1.0-SNAPSHOT.jar
+          if [ ! -f target/universe.jar ]; then  # Corrected the JAR file name here
             echo "JAR file not found!"
             exit 1
           fi
@@ -53,7 +53,7 @@ jobs:
       # Step 7: Start Javalin Application from the JAR
       - name: Start Javalin Application
         run: |
-          java -jar target/universe-1.0-SNAPSHOT.jar application.properties &  
+          java -jar target/universe.jar &  # Removed application.properties as discussed
 
       # Step 8: Start Xvfb
       - name: Start Xvfb
