@@ -37,15 +37,15 @@ jobs:
       - name: Verify JAR file
         run: |
           ls -al target/
-          if [ ! -f target/universe-1.0-SNAPSHOT.jar ]; then
+          if [ ! -f target/universe.jar ]; then  # Ensure we check for universe.jar
             echo "JAR file not found!"
             exit 1
           fi
 
-      # Step 6: Start the Javalin Application from the JAR
+      # Step 6: Start Javalin Application from the JAR
       - name: Start Javalin Application
         run: |
-          java -jar target/universe-1.0-SNAPSHOT.jar --config=${{ github.workspace }}/application.properties &
+          java -jar target/universe.jar --config=${{ github.workspace }}/application.properties &  # Starting the JAR with properties file
 
       # Step 7: Wait for the application to start
       - name: Wait for the application to start
