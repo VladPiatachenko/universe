@@ -33,9 +33,10 @@ jobs:
       - name: Package the JAR
         run: mvn clean package
 
-      # Step 5: Start the Javalin application in the background
+      # Step 5: Start the Javalin application from the JAR
       - name: Start Javalin Application
-        run: java -cp target/classes com.fluffy.universe.Main --config=${{ github.workspace }}/application.properties &
+        run: java -jar target/universe-1.0-SNAPSHOT.jar --config=${{ github.workspace }}/application.properties &
+        # Adjust the jar name as needed based on your actual JAR naming convention.
 
       # Step 6: Wait for the application to start
       - name: Wait for the application to start
