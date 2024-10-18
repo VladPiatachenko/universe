@@ -36,6 +36,7 @@ public class e2eStepdefs {
     String currentemail;
 
     void prepareInputs() {
+        System.out.println("Text indicator for e2e.action in repository. Hello!");
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--remote-allow-origins=*");
         options.addArguments("--headless");

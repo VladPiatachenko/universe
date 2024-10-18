@@ -55,7 +55,7 @@ public class Profilee2eTest {
      * And "User Name" field should be prepopulated and set as "readonly" on the Profile page
      * And "email" field should be prepopulated on the Profile page
      */
-    //@Test
+    @Test
     void SuccessfulViewProfileTest(){
         Actions action = new Actions(driver);
         WebElement usr = driver.findElement(By.xpath("/html/body/header/nav/ul/li[2]/div/button/img"));
@@ -80,7 +80,7 @@ public class Profilee2eTest {
      * 	  Then I should land on the "Home" page//not in this project
      * 	  And I should see "success" message as "Profile updated successfully!"
      */
-    //@Test
+    @Test
     void SuccessfulEditProfileTest() throws IOException {
         Actions action = new Actions(driver);
         WebElement usr = driver.findElement(By.xpath("/html/body/header/nav/ul/li[2]/div/button/img"));
