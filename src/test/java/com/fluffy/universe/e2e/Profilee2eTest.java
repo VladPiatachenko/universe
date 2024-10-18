@@ -36,9 +36,9 @@ public class Profilee2eTest {
     void BackgroundPrep(){
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--remote-allow-origins=*");
-        //options.addArguments("--headless");
-        //options.addArguments("--no-sandbox");
-        //options.addArguments("--disable-dev-shm-usage");
+        options.addArguments("--headless");
+        options.addArguments("--no-sandbox");
+        options.addArguments("--disable-dev-shm-usage");
         driver = new ChromeDriver(options);
         driver.get(loginUrl);
         driver.findElement(By.id("sign-in__email")).sendKeys(testEmail);
