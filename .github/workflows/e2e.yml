@@ -42,11 +42,11 @@ jobs:
             exit 1
           fi
 
-      # Step 6: Start Javalin Application from the JAR
+     # Step 6: Start Javalin Application from the JAR
       - name: Start Javalin Application
         run: |
-          java -jar target/universe.jar --config=${{ github.workspace }}/application.properties &  # Starting the JAR with properties file
-
+          java -jar target/universe.jar /home/runner/work/universe/universe/application.properties &  
+        
       # Step 7: Wait for the application to start
       - name: Wait for the application to start
         run: sleep 30
