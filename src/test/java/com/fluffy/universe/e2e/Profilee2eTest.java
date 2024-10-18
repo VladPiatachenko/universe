@@ -35,10 +35,15 @@ public class Profilee2eTest {
     @BeforeEach
     void BackgroundPrep(){
         ChromeOptions options = new ChromeOptions();
-        options.addArguments("--remote-allow-origins=*");
-        options.addArguments("--headless");
-        options.addArguments("--no-sandbox");
-        options.addArguments("--disable-dev-shm-usage");
+        options.addArguments("--headless"); // Run in headless mode
+        options.addArguments("--no-sandbox"); // Bypass OS security model
+        options.addArguments("--disable-dev-shm-usage"); // Overcome limited resource problems
+        options.addArguments("--remote-allow-origins=*"); // Allow remote origins
+        options.addArguments("--disable-gpu"); // Disable GPU hardware acceleration
+        options.addArguments("--window-size=1920x1080"); // Set window size
+        options.addArguments("--enable-logging");
+        options.addArguments("--v=1");
+
         driver = new ChromeDriver(options);
         driver.get(loginUrl);
         driver.findElement(By.id("sign-in__email")).sendKeys(testEmail);
