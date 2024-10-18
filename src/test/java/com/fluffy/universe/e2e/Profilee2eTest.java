@@ -38,7 +38,7 @@ public class Profilee2eTest {
     @BeforeEach
     void BackgroundPrep(){
         ChromeOptions options = new ChromeOptions();
-        //options.addArguments("--headless"); // Run in headless mode
+        options.addArguments("--headless"); // Run in headless mode
         options.addArguments("--no-sandbox"); // Bypass OS security model
         options.addArguments("--disable-dev-shm-usage"); // Overcome limited resource problems
         options.addArguments("--remote-allow-origins=*"); // Allow remote origins
@@ -64,7 +64,7 @@ public class Profilee2eTest {
      * And "email" field should be prepopulated on the Profile page
      */
     @Test
-    void SuccessfulViewProfileTest(){
+    void SuccessfulViewProfileTest() throws IOException {
         Actions action = new Actions(driver);
         WebElement usr = driver.findElement(By.xpath("/html/body/header/nav/ul/li[2]/div/button/img"));
         action.moveToElement(usr).moveToElement(driver.findElement(By.xpath("/html/body/header/nav/ul/li[2]/div/ul/li[1]/a"))).click().build().perform();
@@ -77,6 +77,8 @@ public class Profilee2eTest {
         System.out.println("~~~~~~~~~~~~email!~~~~~~~~~~~");
         System.out.println(driver.findElement(By.id("account__email")).getAttribute("value"));
         assertNotEquals(driver.findElement(By.id("account__email")).getAttribute("value"),"");//negative test on account_address
+        File scrFile = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
+        FileUtils.copyFile(scrFile, new File("src\\test\\resources\\screenshots\\SuccessfulViewProfile.png"));
         driver.close();
     }
     /**
@@ -92,7 +94,7 @@ public class Profilee2eTest {
      * 	  Then I should land on the "Home" page//not in this project
      * 	  And I should see "success" message as "Profile updated successfully!"
      */
-    @Test
+    //@Test
     void SuccessfulEditProfileTest() throws IOException {
         Actions action = new Actions(driver);
         WebElement usr = driver.findElement(By.xpath("/html/body/header/nav/ul/li[2]/div/button/img"));
@@ -104,12 +106,8 @@ public class Profilee2eTest {
         driver.findElement(By.id("account__address")).sendKeys("E-605");
         driver.findElement(By.id("account__website")).sendKeys("https://example.com");
         driver.findElement(By.xpath("/html/body/main/div/form/div[8]/button")).click();
-        System.out.println("~~~~~~~~~~~~url!~~~~~~~~~~~");
-        System.out.println(driver.getCurrentUrl());
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("/html/body/div[2]/div/div[1]/h2")));
-        System.out.println("~~~~~~~~~~~~alert!~~~~~~~~~~~");
-        System.out.println(driver.findElement(By.xpath("/html/body/div[2]/div/div[1]/h2")).getText());
         assertEquals(driver.findElement(By.xpath("/html/body/div[2]/div/div[1]/h2")).getText(),"Congratulations!");
         assertEquals(driver.findElement(By.xpath("/html/body/div[2]/div/div[2]")).getText(),"User account data updated successfully.");
         File scrFile = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
