@@ -29,36 +29,43 @@ jobs:
       - name: Install dependencies without tests
         run: mvn install -DskipTests
 
-      # Step 4: Start the Javalin application with the properties file
+      # Step 4: Package the JAR (optional)
+      - name: Package the JAR
+        run: mvn clean package
+
+      # Step 5: Start the Javalin application with the properties file
       - name: Start Javalin Application
         run: |
           java -cp target/classes com.fluffy.universe.Main --config=${{ github.workspace }}\application.properties &
 
-      # Step 5: Wait for the application to start
+      # Step 6: Wait for the application to start
       - name: Wait for the application to start
         run: Start-Sleep -Seconds 30
 
-      # Additional steps for Robot Framework tests
+      # Step 7: Run Cucumber + Selenium tests
+      - name: Run Cucumber + Selenium tests
+        run: mvn test
+
+      # Step 8: Set up Python 3.x
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
           python-version: '3.x'
 
-      - name: Install Robot Framework and dependencies
+      # Step 9: Install distutils and dependencies for Robot Framework
+      - name: Install distutils and dependencies
         run: |
-          pip install robotframework
-          pip install robotframework-seleniumlibrary
-          pip install -r requirements.txt
+          pip install setuptools
+          pip install wheel
+          pip install distutils
+          pip install -r requirements.txt  # Install your dependencies
 
+      # Step 10: Run Robot Framework E2E tests
       - name: Run Robot Framework E2E tests
         run: |
           robot --outputdir results e2e_tests/
 
-      # Step 6: Run Cucumber + Selenium tests
-      - name: Run Cucumber + Selenium tests
-        run: mvn test
-
-      # Step finale: Archive test results
+      # Step 11: Archive test results
       - name: Archive test results
         uses: actions/upload-artifact@v3
         with:
