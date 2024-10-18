@@ -11,7 +11,7 @@ on:
 
 jobs:
   e2e-tests:
-    runs-on: windows-latest  # Use Windows environment
+    runs-on: ubuntu-latest  # Use Linux environment
 
     steps:
       # Step 1: Checkout the code
@@ -29,36 +29,34 @@ jobs:
       - name: Install dependencies without tests
         run: mvn install -DskipTests
 
-      # Step 4: Package the JAR (optional)
+      # Step 4: Package the JAR
       - name: Package the JAR
         run: mvn clean package
 
-      # Step 5: Start the Javalin application with the properties file
+      # Step 5: Start the Javalin application in the background
       - name: Start Javalin Application
-        run: |
-          java -cp target/classes com.fluffy.universe.Main --config=${{ github.workspace }}\application.properties &
+        run: java -cp target/classes com.fluffy.universe.Main --config=${{ github.workspace }}/application.properties &
 
       # Step 6: Wait for the application to start
       - name: Wait for the application to start
-        run: Start-Sleep -Seconds 30
+        run: sleep 30
 
       # Step 7: Run Cucumber + Selenium tests
       - name: Run Cucumber + Selenium tests
         run: mvn test
 
-      # Step 8: Set up Python 3.x
+      # Step 8: Set up Python 3.11
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
-          python-version: '3.x'
+          python-version: '3.11'
 
-      # Step 9: Install distutils and dependencies for Robot Framework
-      - name: Install distutils and dependencies
+      # Step 9: Install dependencies for Robot Framework
+      - name: Install dependencies
         run: |
-          pip install setuptools
-          pip install wheel
-          pip install distutils
-          pip install -r requirements.txt  # Install your dependencies
+          pip install --upgrade pip
+          pip install setuptools wheel
+          pip install -r requirements.txt
 
       # Step 10: Run Robot Framework E2E tests
       - name: Run Robot Framework E2E tests
