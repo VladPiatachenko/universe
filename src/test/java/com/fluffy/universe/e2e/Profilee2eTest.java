@@ -7,9 +7,12 @@ import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.io.File;
 import java.io.IOException;
+import java.time.Duration;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
@@ -69,7 +72,9 @@ public class Profilee2eTest {
         assertEquals(driver.findElement(By.xpath("/html/body/main/div/form/div[1]/h1")).getText(),"Account");
         assertNotEquals(driver.findElement(By.id("account__first-name")).getAttribute("value"),"");
         assertNotEquals(driver.findElement(By.id("account__last-name")).getAttribute("value"),"");
+        System.out.println("~~~~~~~~~~~~url!~~~~~~~~~~~");
         System.out.println(driver.getCurrentUrl());
+        System.out.println("~~~~~~~~~~~~email!~~~~~~~~~~~");
         System.out.println(driver.findElement(By.id("account__email")).getAttribute("value"));
         assertNotEquals(driver.findElement(By.id("account__email")).getAttribute("value"),"");//negative test on account_address
         driver.close();
@@ -99,6 +104,9 @@ public class Profilee2eTest {
         driver.findElement(By.id("account__address")).sendKeys("E-605");
         driver.findElement(By.id("account__website")).sendKeys("https://example.com");
         driver.findElement(By.xpath("/html/body/main/div/form/div[8]/button")).click();
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("/html/body/div[2]/div/div[1]/h2")));
+        System.out.println("~~~~~~~~~~~~alert!~~~~~~~~~~~");
         System.out.println(driver.findElement(By.xpath("/html/body/div[2]/div/div[1]/h2")).getText());
         assertEquals(driver.findElement(By.xpath("/html/body/div[2]/div/div[1]/h2")).getText(),"Congratulations!");
         assertEquals(driver.findElement(By.xpath("/html/body/div[2]/div/div[2]")).getText(),"User account data updated successfully.");
