@@ -11,6 +11,8 @@ import com.google.common.base.Strings;
 import io.javalin.Javalin;
 import io.javalin.http.Context;
 import io.javalin.http.HttpCode;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import javax.mail.MessagingException;
 import java.time.LocalDate;
@@ -138,7 +140,7 @@ public class UserController extends Controller {
         model.put("posts", PostService.getPostsWithCommentCount());
         render(context, "/views/pages/models/user/dashboard.vm");
     }
-
+    private static final Logger logger = LoggerFactory.getLogger(UserController.class);
     public void signUp(Context context) {
         ServerData serverData = SessionUtils.getCurrentServerData(context);
         ErrorBag errorBag = new ErrorBag("sign-up");
@@ -159,6 +161,20 @@ public class UserController extends Controller {
             serverData.addErrorBag(errorBag);
             serverData.setAlertWindow("Sign up failed!", "Please ensure that all required fields are filled in correctly and try again.", AlertType.WARNING);
             context.redirect("/sign-up");
+
+                StringBuilder errorDetails = new StringBuilder("Validation errors: ");
+                for (Map.Entry<String, Map<String, String>> entry : errorBag.getStorage().entrySet()) {
+                    String field = entry.getKey();
+                    String error = entry.getValue().get("errorMessage");
+                    if (error != null && !ErrorBag.NO_ERROR_MESSAGE.equals(error)) {
+                        errorDetails.append(field)
+                                .append(" → ")
+                                .append(error)
+                                .append("; ");
+                    }
+                }
+
+                logger.warn("Registration failed for email {}: {}", email, errorDetails.toString());
             return;
         }
 
@@ -168,14 +184,25 @@ public class UserController extends Controller {
         user.setLastName(SecurityUtils.escape(lastName));
         user.setEmail(SecurityUtils.escape(email));
         user.setPassword(UserService.encodePassword(password));
-        UserService.saveUser(user);
+        try {
+            UserService.saveUser(user);
+            context.sessionAttribute(SessionKey.USER, user);
+            serverData.setAlertWindow("Congratulations!", "You have successfully signed up. Welcome to our community!", AlertType.SUCCESS);
+            context.redirect("/");
+        } catch (Exception e) {
+            logger.error("Registration failed for email {}: {}", email, e.getMessage(), e);
+            serverData.setAlertWindow("Registration failed!", "Oops, something went wrong on our side. Please try again later.", AlertType.ERROR);
+            context.redirect("/sign-up");
+        }
 
+        logger.info("User {} registered successfully", email);
         context.sessionAttribute(SessionKey.USER, user);
         serverData.setAlertWindow("Congratulations!", "You have successfully signed up. Welcome to our community!", AlertType.SUCCESS);
         context.redirect("/");
     }
 
     public void signIn(Context context) {
+        logger.info("Sign-in attempt for user: {}", context.formParam("email"));
         ServerData serverData = SessionUtils.getCurrentServerData(context);
         ErrorBag errorBag = new ErrorBag("sign-in");
 

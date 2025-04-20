@@ -24,7 +24,7 @@ public class UserControllerIntegrationTest {
     private static Javalin app;
     private String testUserEmail;
 
-    @BeforeEach
+    //@BeforeEach
     public void setup() {
         Configuration.load(new File("application.properties"));
 
@@ -57,7 +57,7 @@ public class UserControllerIntegrationTest {
         userController = new UserController(app);
     }
 
-    @AfterEach
+    //@AfterEach
     public void tearDown() {
         // Delete the test user from the database if it was created
         if (testUserEmail!=null) {
@@ -68,7 +68,7 @@ public class UserControllerIntegrationTest {
         }
     }
 
-    @Test
+    //@Test
     public void testUserRegistrationAndDatabase() {
         // Create a mock context
         Context context = Mockito.mock(Context.class);

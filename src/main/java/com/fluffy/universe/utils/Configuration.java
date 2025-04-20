@@ -1,5 +1,9 @@
 package com.fluffy.universe.utils;
 
+import com.fluffy.universe.Main;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -9,6 +13,7 @@ import java.util.Map;
 import java.util.Properties;
 
 public final class Configuration {
+    private static final Logger logger = LoggerFactory.getLogger(Configuration.class);
     private static final List<String> parameters = List.of(
             "application.url", "application.host", "application.port", "application.bcryptStrength",
             "database.filename",
@@ -37,6 +42,7 @@ public final class Configuration {
                 values.put(parameter, value);
             }
         } catch (IOException e) {
+            logger.error("Error loading properties file: {}", e.getMessage());
             throw new RuntimeException(e);
         }
     }
@@ -67,6 +73,7 @@ public final class Configuration {
         } else if (clazz == Character.class) {
             return (T) Character.valueOf(value.charAt(0));
         } else {
+            logger.error("Cannot cast parameter value {} to {}", value, clazz);
             throw new IllegalArgumentException("Cannot cast parameter value " + value + " to " + clazz);
         }
     }

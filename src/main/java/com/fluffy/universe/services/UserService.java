@@ -8,8 +8,13 @@ import io.javalin.http.HttpCode;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.sql2o.Connection;
-
+import org.sql2o.Query;
+import org.jdbi.v3.core.Handle;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 public  class UserService {//final
     public UserService() {}
@@ -56,15 +61,63 @@ public  class UserService {//final
     public static void saveUser(User user) {
         try (Connection connection = DataSource.getConnection()) {
             if (user.getId() == null) {
-                Integer id = connection.createQuery(INSERT_USER_SQL).bind(user).executeUpdate().getKey(Integer.class);
+                Integer id = connection
+                        .createQuery(INSERT_USER_SQL, true)
+                        .bind(user)
+                        .executeUpdate()
+                        .getKey(Integer.class);
                 user.setId(id);
             } else {
-                connection.createQuery(UPDATE_USER_SQL).bind(user).executeUpdate();
+                StringBuilder sql = new StringBuilder("UPDATE User SET ");
+                List<String> updates = new ArrayList<>();
+                Map<String, Object> params = new HashMap<>();
+
+                if (user.getFirstName() != null) {
+                    updates.add("FirstName = :firstName");
+                    params.put("firstName", user.getFirstName());
+                }
+                if (user.getLastName() != null) {
+                    updates.add("LastName = :lastName");
+                    params.put("lastName", user.getLastName());
+                }
+                if (user.getGender() != null) {
+                    updates.add("Gender = :gender");
+                    params.put("gender", user.getGender());
+                }
+                if (user.getBirthday() != null) {
+                    updates.add("Birthday = :birthday");
+                    params.put("birthday", user.getBirthday());
+                }
+                if (user.getAddress() != null) {
+                    updates.add("Address = :address");
+                    params.put("address", user.getAddress());
+                }
+                if (user.getWebsite() != null) {
+                    updates.add("Website = :website");
+                    params.put("website", user.getWebsite());
+                }
+
+                if (updates.isEmpty()) return; // нема що оновлювати
+
+                sql.append(String.join(", ", updates));
+                sql.append(" WHERE ID = :id");
+                params.put("id", user.getId());
+
+                Query query = connection.createQuery(sql.toString());
+
+                for (Map.Entry<String, Object> entry : params.entrySet()) {
+                    query.addParameter(entry.getKey(), entry.getValue());
+                }
+
+                query.executeUpdate();
             }
-        } catch (SQLException throwables) {
-            throw new HttpException(HttpCode.INTERNAL_SERVER_ERROR, "Problem with database connection: " + throwables);
+        } catch (Exception e) {
+            throw new HttpException(HttpCode.INTERNAL_SERVER_ERROR,
+                    "Problem with database connection: " + e);
         }
     }
+
+
 
     public static String encodePassword(String password) {
         return passwordEncoder.encode(password);

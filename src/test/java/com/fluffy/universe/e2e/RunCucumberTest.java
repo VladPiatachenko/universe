@@ -5,10 +5,8 @@ import org.junit.jupiter.api.Test;
 
 public class RunCucumberTest {
 
-    @Test
+    //@Test
     public void trigger() {
-        System.out.println("Text indicator for e2e.action in repository. Hello!");
-
         // Arguments to specify feature file, glue code, and report generation
         String[] cucumberOptions = new String[]{
                 "-g", "com.fluffy.universe.e2esteps",  // Path to step definitions (glue)

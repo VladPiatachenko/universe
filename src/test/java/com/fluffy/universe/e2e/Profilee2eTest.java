@@ -38,7 +38,7 @@ public class Profilee2eTest {
     @BeforeEach
     void BackgroundPrep(){
         ChromeOptions options = new ChromeOptions();
-        options.addArguments("--headless"); // Run in headless mode
+       // options.addArguments("--headless"); // Run in headless mode
         options.addArguments("--no-sandbox"); // Bypass OS security model
         options.addArguments("--disable-dev-shm-usage"); // Overcome limited resource problems
         options.addArguments("--remote-allow-origins=*"); // Allow remote origins
@@ -72,10 +72,6 @@ public class Profilee2eTest {
         assertEquals(driver.findElement(By.xpath("/html/body/main/div/form/div[1]/h1")).getText(),"Account");
         assertNotEquals(driver.findElement(By.id("account__first-name")).getAttribute("value"),"");
         assertNotEquals(driver.findElement(By.id("account__last-name")).getAttribute("value"),"");
-        System.out.println("~~~~~~~~~~~~url!~~~~~~~~~~~");
-        System.out.println(driver.getCurrentUrl());
-        System.out.println("~~~~~~~~~~~~email!~~~~~~~~~~~");
-        System.out.println(driver.findElement(By.id("account__email")).getAttribute("value"));
         assertNotEquals(driver.findElement(By.id("account__email")).getAttribute("value"),"");//negative test on account_address
         File scrFile = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
         FileUtils.copyFile(scrFile, new File("src\\test\\resources\\screenshots\\SuccessfulViewProfile.png"));
@@ -94,7 +90,7 @@ public class Profilee2eTest {
      * 	  Then I should land on the "Home" page//not in this project
      * 	  And I should see "success" message as "Profile updated successfully!"
      */
-    //@Test
+    @Test
     void SuccessfulEditProfileTest() throws IOException {
         Actions action = new Actions(driver);
         WebElement usr = driver.findElement(By.xpath("/html/body/header/nav/ul/li[2]/div/button/img"));

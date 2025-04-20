@@ -1,0 +1,121 @@
+2025-04-14 12:37:51 INFO  [main] com.fluffy.universe.Main - Application is starting...
+2025-04-14 12:37:51 INFO  [main] org.eclipse.jetty.util.log - Logging initialized @1285ms to org.eclipse.jetty.util.log.Slf4jLog
+2025-04-14 12:37:51 INFO  [main] io.javalin.Javalin - 
+       __                      __ _            __ __
+      / /____ _ _   __ ____ _ / /(_)____      / // /
+ __  / // __ `/| | / // __ `// // // __ \    / // /_
+/ /_/ // /_/ / | |/ // /_/ // // // / / /   /__  __/
+\____/ \__,_/  |___/ \__,_//_//_//_/ /_/      /_/
+
+          https://javalin.io/documentation
+
+2025-04-14 12:37:51 INFO  [main] io.javalin.Javalin - Starting Javalin ...
+2025-04-14 12:37:51 INFO  [main] io.javalin.Javalin - You are running Javalin 4.6.7 (released October 24, 2022. Your Javalin version is 903 days old. Consider checking for a newer version.).
+2025-04-14 12:37:52 INFO  [main] io.javalin.Javalin - Static file handler added: StaticFileConfig(hostedPath=/, directory=/public, location=CLASSPATH, precompress=false, aliasCheck=null, headers={Cache-Control=max-age=0}). File system location: 'file:///E:/erlkonig/universe-blog/target/classes/public/'
+2025-04-14 12:37:52 INFO  [main] io.javalin.Javalin - Listening on http://127.0.0.1:7000/
+2025-04-14 12:37:52 INFO  [main] io.javalin.Javalin - Javalin started in 1068ms \o/
+2025-04-14 12:38:40 INFO  [JettyServerThreadPool-33] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-04-14 12:38:41 INFO  [JettyServerThreadPool-33] com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.sqlite.jdbc4.JDBC4Connection@598bf15b
+2025-04-14 12:38:41 INFO  [JettyServerThreadPool-33] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-04-14 12:46:39 INFO  [JettyServerThreadPool-52] c.f.u.controllers.UserController - Sign-in attempt for user: potter@hogwarts.uk
+2025-04-14 12:47:04 INFO  [JettyServerThreadPool-32] c.f.u.controllers.UserController - User potter13@hogwarts.uk registered successfully
+2025-04-14 13:00:33 INFO  [main] com.fluffy.universe.Main - Application is starting...
+2025-04-14 13:00:34 INFO  [main] org.eclipse.jetty.util.log - Logging initialized @1036ms to org.eclipse.jetty.util.log.Slf4jLog
+2025-04-14 13:00:34 INFO  [main] io.javalin.Javalin - 
+       __                      __ _            __ __
+      / /____ _ _   __ ____ _ / /(_)____      / // /
+ __  / // __ `/| | / // __ `// // // __ \    / // /_
+/ /_/ // /_/ / | |/ // /_/ // // // / / /   /__  __/
+\____/ \__,_/  |___/ \__,_//_//_//_/ /_/      /_/
+
+          https://javalin.io/documentation
+
+2025-04-14 13:00:34 INFO  [main] io.javalin.Javalin - Starting Javalin ...
+2025-04-14 13:00:34 INFO  [main] io.javalin.Javalin - You are running Javalin 4.6.7 (released October 24, 2022. Your Javalin version is 903 days old. Consider checking for a newer version.).
+2025-04-14 13:00:35 INFO  [main] io.javalin.Javalin - Static file handler added: StaticFileConfig(hostedPath=/, directory=/public, location=CLASSPATH, precompress=false, aliasCheck=null, headers={Cache-Control=max-age=0}). File system location: 'file:///E:/erlkonig/universe-blog/target/classes/public/'
+2025-04-14 13:00:35 INFO  [main] io.javalin.Javalin - Listening on http://127.0.0.1:7000/
+2025-04-14 13:00:35 INFO  [main] io.javalin.Javalin - Javalin started in 831ms \o/
+2025-04-14 13:01:10 INFO  [JettyServerThreadPool-33] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-04-14 13:01:12 INFO  [JettyServerThreadPool-33] com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.sqlite.jdbc4.JDBC4Connection@3395cc79
+2025-04-14 13:01:13 INFO  [JettyServerThreadPool-33] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-04-14 13:01:50 INFO  [JettyServerThreadPool-27] c.f.u.controllers.UserController - User potter78@hogwarts.uk registered successfully
+2025-04-14 13:03:22 ERROR [JettyServerThreadPool-30] com.fluffy.universe.Main - Unhandled exception [459a89e6-deac-4023-b698-6997da08195d]: java.lang.ArrayIndexOutOfBoundsException: Index 1962 out of bounds for length 550
+java.lang.IllegalStateException: java.lang.ArrayIndexOutOfBoundsException: Index 1962 out of bounds for length 550
+	at org.eclipse.jetty.util.MultiPartInputStreamParser.throwIfError(MultiPartInputStreamParser.java:520)
+	at org.eclipse.jetty.util.MultiPartInputStreamParser.getParts(Unknown Source)
+	at org.eclipse.jetty.server.MultiParts$MultiPartsUtilParser.getParts(Unknown Source)
+	at org.eclipse.jetty.server.Request.getParts(Unknown Source)
+	at org.eclipse.jetty.server.Request.getParts(Unknown Source)
+	at io.javalin.http.util.MultipartUtil.getFieldMap(Unknown Source)
+	at io.javalin.http.Context$formParams$2.invoke(Context.kt:161)
+	at io.javalin.http.Context$formParams$2.invoke(Unknown Source)
+	at kotlin.SynchronizedLazyImpl.getValue(LazyJVM.kt:76)
+	at io.javalin.http.Context.getFormParams(Unknown Source)
+	at io.javalin.http.Context.formParamMap(Unknown Source)
+	at io.javalin.http.Context.formParams(Unknown Source)
+	at io.javalin.http.Context.formParam(Unknown Source)
+	at com.fluffy.universe.middleware.CSRFFilter.verifyToken(CSRFFilter.java:33)
+	at io.javalin.http.JavalinServlet$lifecycle$1$1$1.invoke(Unknown Source)
+	at io.javalin.http.JavalinServlet$lifecycle$1$1$1.invoke(Unknown Source)
+	at io.javalin.http.JavalinServletHandler.executeNextTask(JavalinServletHandler.kt:99)
+	at io.javalin.http.JavalinServletHandler.queueNextTaskOrFinish$lambda-1(JavalinServletHandler.kt:85)
+	at java.base/java.util.concurrent.CompletableFuture.uniComposeStage(CompletableFuture.java:1187)
+	at java.base/java.util.concurrent.CompletableFuture.thenCompose(CompletableFuture.java:2341)
+	at io.javalin.http.JavalinServletHandler.queueNextTaskOrFinish$javalin(JavalinServletHandler.kt:85)
+	at io.javalin.http.JavalinServletHandler.executeNextTask$lambda-11$lambda-10(JavalinServletHandler.kt:119)
+	at java.base/java.util.concurrent.CompletableFuture.uniApplyNow(CompletableFuture.java:684)
+	at java.base/java.util.concurrent.CompletableFuture.uniApplyStage(CompletableFuture.java:662)
+	at java.base/java.util.concurrent.CompletableFuture.thenApply(CompletableFuture.java:2200)
+	at io.javalin.http.JavalinServletHandler.executeNextTask(JavalinServletHandler.kt:119)
+	at io.javalin.http.JavalinServletHandler.queueNextTaskOrFinish$lambda-1(JavalinServletHandler.kt:85)
+	at java.base/java.util.concurrent.CompletableFuture.uniComposeStage(CompletableFuture.java:1187)
+	at java.base/java.util.concurrent.CompletableFuture.thenCompose(CompletableFuture.java:2341)
+	at io.javalin.http.JavalinServletHandler.queueNextTaskOrFinish$javalin(JavalinServletHandler.kt:85)
+	at io.javalin.http.JavalinServlet.service(JavalinServlet.kt:89)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:790)
+	at io.javalin.jetty.JavalinJettyServlet.service(JavalinJettyServlet.kt:58)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:790)
+	at org.eclipse.jetty.servlet.ServletHolder.handle(ServletHolder.java:799)
+	at org.eclipse.jetty.servlet.ServletHandler.doHandle(ServletHandler.java:554)
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextHandle(ScopedHandler.java:233)
+	at org.eclipse.jetty.server.session.SessionHandler.doHandle(Unknown Source)
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextHandle(ScopedHandler.java:233)
+	at io.javalin.jetty.JettyServer$start$wsAndHttpHandler$1.doHandle(Unknown Source)
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextScope(ScopedHandler.java:188)
+	at org.eclipse.jetty.servlet.ServletHandler.doScope(ServletHandler.java:505)
+	at org.eclipse.jetty.server.session.SessionHandler.doScope(Unknown Source)
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextScope(ScopedHandler.java:186)
+	at org.eclipse.jetty.server.handler.ContextHandler.doScope(Unknown Source)
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:141)
+	at org.eclipse.jetty.server.handler.StatisticsHandler.handle(StatisticsHandler.java:181)
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:127)
+	at org.eclipse.jetty.server.Server.handle(Unknown Source)
+	at org.eclipse.jetty.server.HttpChannel.lambda$handle$1(Unknown Source)
+	at org.eclipse.jetty.server.HttpChannel.dispatch(Unknown Source)
+	at org.eclipse.jetty.server.HttpChannel.handle(Unknown Source)
+	at org.eclipse.jetty.server.HttpConnection.onFillable(HttpConnection.java:277)
+	at org.eclipse.jetty.io.AbstractConnection$ReadCallback.succeeded(AbstractConnection.java:311)
+	at org.eclipse.jetty.io.FillInterest.fillable(FillInterest.java:105)
+	at org.eclipse.jetty.io.ChannelEndPoint$1.run(ChannelEndPoint.java:104)
+	at org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.runTask(EatWhatYouKill.java:338)
+	at org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.doProduce(EatWhatYouKill.java:315)
+	at org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.tryProduce(EatWhatYouKill.java:173)
+	at org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.run(EatWhatYouKill.java:131)
+	at org.eclipse.jetty.util.thread.ReservedThreadExecutor$ReservedThread.run(ReservedThreadExecutor.java:409)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:883)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool$Runner.run(QueuedThreadPool.java:1034)
+	at java.base/java.lang.Thread.run(Thread.java:1589)
+Caused by: java.lang.ArrayIndexOutOfBoundsException: Index 1962 out of bounds for length 550
+	at org.graalvm.visualvm.lib.jfluid.server.ProfilerRuntimeCPUFullInstr.methodEntry(ProfilerRuntimeCPUFullInstr.java:162)
+	at org.eclipse.jetty.io.ArrayByteBufferPool.release(ArrayByteBufferPool.java:138)
+	at org.eclipse.jetty.server.HttpConnection.releaseRequestBuffer(HttpConnection.java:232)
+	at org.eclipse.jetty.server.HttpConnection$Content.succeeded(HttpConnection.java:644)
+	at org.eclipse.jetty.server.HttpInput.nextInterceptedContent(HttpInput.java:489)
+	at org.eclipse.jetty.server.HttpInput.read(HttpInput.java:325)
+	at java.base/java.io.BufferedInputStream.fill(BufferedInputStream.java:255)
+	at java.base/java.io.BufferedInputStream.implRead(BufferedInputStream.java:289)
+	at java.base/java.io.BufferedInputStream.read(BufferedInputStream.java:282)
+	at org.eclipse.jetty.util.ReadLineInputStream.readLine(ReadLineInputStream.java:70)
+	at org.eclipse.jetty.util.MultiPartInputStreamParser.parse(Unknown Source)
+	... 63 common frames omitted
+2025-04-14 13:03:25 WARN  [JettyServerThreadPool-33] com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Failed to validate connection org.sqlite.jdbc4.JDBC4Connection@3395cc79 (Index 2192 out of bounds for length 1114). Possibly consider using a shorter maxLifetime value.

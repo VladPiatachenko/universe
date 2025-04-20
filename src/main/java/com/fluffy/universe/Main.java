@@ -8,11 +8,16 @@ import com.fluffy.universe.utils.ApplicationAccessManager;
 import com.fluffy.universe.utils.Configuration;
 import io.javalin.Javalin;
 import io.javalin.http.staticfiles.Location;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.io.File;
+import java.util.UUID;
 
 public class Main {
+    private static final Logger logger = LoggerFactory.getLogger(Main.class);
     public static void main(String[] args) {
+        logger.info("Application is starting...");
         Javalin application = Javalin.create(configuration -> {
             configuration.addStaticFiles("/public", Location.CLASSPATH);
             configuration.accessManager(new ApplicationAccessManager());
@@ -34,6 +39,13 @@ public class Main {
         new UserController(application);
         new PostController(application);
         new CommentController(application);
+        application.exception(Exception.class, (e, ctx) -> {
+            String errorId = UUID.randomUUID().toString();
+            logger.error("Unhandled exception [{}]: {}", errorId, e.getMessage(), e);
+            ctx.status(500);
+            ctx.result("Something went wrong. Error code: " + errorId);
+        });
+
         application.start(Configuration.get("application.host"), Configuration.getAsClass("application.port", Integer.class));
     }
 }

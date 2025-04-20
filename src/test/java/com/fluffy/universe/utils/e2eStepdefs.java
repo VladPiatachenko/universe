@@ -1,4 +1,4 @@
-package com.fluffy.universe.e2esteps;
+package com.fluffy.universe.utils;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -15,6 +15,7 @@ import io.cucumber.java.en.When;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import io.javalin.Javalin;
 import org.apache.commons.io.FileUtils;
+import org.junit.Assert;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -36,10 +37,9 @@ public class e2eStepdefs {
     String currentemail;
 
     void prepareInputs() {
-        System.out.println("Text indicator for e2e.action in repository. Hello!");
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--remote-allow-origins=*");
-        options.addArguments("--headless");
+        //options.addArguments("--headless");
         options.addArguments("--no-sandbox");
         options.addArguments("--disable-dev-shm-usage");
         driver = new ChromeDriver(options);
@@ -141,32 +141,35 @@ public class e2eStepdefs {
         }
     }
 
-    @And("I should not be able to submit the {string} form")
-    public void iShouldNotBeAbleToSubmitTheForm(String arg0) {
-
-    }
-
-    @Then("I should see {string} message for {string} field on {string} page")
-    public void iShouldSeeMessageForFieldOnPage(String arg0, String arg1, String arg2) {
-
-    }
-
-    @And("I should see {string} button disbaled")
-    public void iShouldSeeButtonDisbaled(String arg0) {
-
-    }
 
     @Then("I should be successfully logged in")
-    public void iShouldBeSuccessfullyLoggedIn() {
-
+    public void iShouldBeSuccessfullyLoggedIn() throws IOException {
+        File scrFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+        FileUtils.copyFile(scrFile, new File("src/test/resources/screenshots/SuccessfullyLoggedIn.png"));
     }
 
     @Then("I should be redirected on the {string} page")
     public void iShouldBeRedirectedOnThePage(String arg0) {
-
     }
 
     @And("I should see {string} message as {string}")
-    public void iShouldSeeMessageAs(String arg0, String arg1, String arg2) {
+    public void iShouldSeeMessageAs(String arg0, String arg1) {
+        Assert.assertEquals(driver.findElement(By.xpath(selectors.get(arg0))).getText(),arg1);
+    }
+
+    @Then("I should see {string} message for {string} field on {string} page")
+    public void iShouldSeeMessageForFieldOnPage(String arg0, String arg1, String arg2) {
+    }
+
+    @And("I should see {string} buttton disbaled")
+    public void iShouldSeeButttonDisbaled(String arg0) {
+    }
+
+    @And("I should not be able to submit the {string} form")
+    public void iShouldNotBeAbleToSubmitTheForm(String arg0) {
+    }
+
+    @And("I should see {string} button disbaled")
+    public void iShouldSeeButtonDisbaled(String arg0) {
     }
 }

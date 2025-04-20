@@ -1,0 +1,232 @@
+2025-04-15 10:22:47 INFO  [main] com.fluffy.universe.Main - Application is starting...
+2025-04-15 10:22:47 INFO  [main] org.eclipse.jetty.util.log - Logging initialized @1952ms to org.eclipse.jetty.util.log.Slf4jLog
+2025-04-15 10:22:47 INFO  [main] io.javalin.Javalin - 
+       __                      __ _            __ __
+      / /____ _ _   __ ____ _ / /(_)____      / // /
+ __  / // __ `/| | / // __ `// // // __ \    / // /_
+/ /_/ // /_/ / | |/ // /_/ // // // / / /   /__  __/
+\____/ \__,_/  |___/ \__,_//_//_//_/ /_/      /_/
+
+          https://javalin.io/documentation
+
+2025-04-15 10:22:47 INFO  [main] io.javalin.Javalin - Starting Javalin ...
+2025-04-15 10:22:47 INFO  [main] io.javalin.Javalin - You are running Javalin 4.6.7 (released October 24, 2022. Your Javalin version is 904 days old. Consider checking for a newer version.).
+2025-04-15 10:22:49 INFO  [main] io.javalin.Javalin - Static file handler added: StaticFileConfig(hostedPath=/, directory=/public, location=CLASSPATH, precompress=false, aliasCheck=null, headers={Cache-Control=max-age=0}). File system location: 'file:///E:/erlkonig/universe-blog/target/classes/public/'
+2025-04-15 10:22:49 INFO  [main] io.javalin.Javalin - Listening on http://127.0.0.1:7000/
+2025-04-15 10:22:49 INFO  [main] io.javalin.Javalin - Javalin started in 1518ms \o/
+2025-04-15 10:24:53 INFO  [JettyServerThreadPool-33] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-04-15 10:24:54 INFO  [JettyServerThreadPool-33] com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.sqlite.jdbc4.JDBC4Connection@6baf511c
+2025-04-15 10:24:54 INFO  [JettyServerThreadPool-33] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-04-15 10:26:27 INFO  [JettyServerThreadPool-32] c.f.u.controllers.UserController - Sign-in attempt for user: potter@hogwarts.uk
+2025-04-15 10:28:03 INFO  [JettyServerThreadPool-28] c.f.u.controllers.UserController - User potter12345@hogwarts.uk registered successfully
+2025-04-15 10:29:55 INFO  [JettyServerThreadPool-28] c.f.u.controllers.UserController - Sign-in attempt for user: potter@hogwarts.uk
+2025-04-15 11:36:04 WARN  [JettyServerThreadPool-104] c.f.u.controllers.UserController - Registration failed for email potter@hogwarts.uk: Validation errors: email → Email is already is use; 
+2025-04-15 11:39:51 WARN  [JettyServerThreadPool-70] c.f.u.controllers.UserController - Registration failed for email bronzeghoste@gmail.com: Validation errors: email → Email is already is use; 
+2025-04-15 11:41:01 INFO  [JettyServerThreadPool-125] org.apache.velocity - Runtime: ran out of parsers. Creating a new one.  Please increment the parser.pool.size property. The current value is too small.
+2025-04-15 11:41:01 INFO  [JettyServerThreadPool-120] org.apache.velocity - Runtime: ran out of parsers. Creating a new one.  Please increment the parser.pool.size property. The current value is too small.
+2025-04-15 11:41:01 INFO  [JettyServerThreadPool-32] org.apache.velocity - Runtime: ran out of parsers. Creating a new one.  Please increment the parser.pool.size property. The current value is too small.
+2025-04-15 11:41:01 INFO  [JettyServerThreadPool-104] org.apache.velocity - Runtime: ran out of parsers. Creating a new one.  Please increment the parser.pool.size property. The current value is too small.
+2025-04-15 11:41:01 INFO  [JettyServerThreadPool-104] org.apache.velocity - Runtime: ran out of parsers. Creating a new one.  Please increment the parser.pool.size property. The current value is too small.
+2025-04-15 11:41:01 INFO  [JettyServerThreadPool-130] org.apache.velocity - Runtime: ran out of parsers. Creating a new one.  Please increment the parser.pool.size property. The current value is too small.
+2025-04-15 11:41:01 INFO  [JettyServerThreadPool-132] org.apache.velocity - Runtime: ran out of parsers. Creating a new one.  Please increment the parser.pool.size property. The current value is too small.
+2025-04-15 11:41:01 INFO  [JettyServerThreadPool-132] org.apache.velocity - Runtime: ran out of parsers. Creating a new one.  Please increment the parser.pool.size property. The current value is too small.
+2025-04-15 11:41:02 INFO  [JettyServerThreadPool-118] org.apache.velocity - Runtime: ran out of parsers. Creating a new one.  Please increment the parser.pool.size property. The current value is too small.
+2025-04-15 11:41:02 INFO  [JettyServerThreadPool-133] org.apache.velocity - Runtime: ran out of parsers. Creating a new one.  Please increment the parser.pool.size property. The current value is too small.
+2025-04-15 11:41:02 INFO  [JettyServerThreadPool-130] org.apache.velocity - Runtime: ran out of parsers. Creating a new one.  Please increment the parser.pool.size property. The current value is too small.
+2025-04-15 11:41:02 INFO  [JettyServerThreadPool-133] org.apache.velocity - Runtime: ran out of parsers. Creating a new one.  Please increment the parser.pool.size property. The current value is too small.
+2025-04-15 11:41:02 INFO  [JettyServerThreadPool-118] org.apache.velocity - Runtime: ran out of parsers. Creating a new one.  Please increment the parser.pool.size property. The current value is too small.
+2025-04-15 11:41:02 INFO  [JettyServerThreadPool-128] org.apache.velocity - Runtime: ran out of parsers. Creating a new one.  Please increment the parser.pool.size property. The current value is too small.
+2025-04-15 11:41:02 INFO  [JettyServerThreadPool-129] org.apache.velocity - Runtime: ran out of parsers. Creating a new one.  Please increment the parser.pool.size property. The current value is too small.
+2025-04-15 11:41:02 INFO  [JettyServerThreadPool-127] org.apache.velocity - Runtime: ran out of parsers. Creating a new one.  Please increment the parser.pool.size property. The current value is too small.
+2025-04-15 11:41:02 INFO  [JettyServerThreadPool-129] org.apache.velocity - Runtime: ran out of parsers. Creating a new one.  Please increment the parser.pool.size property. The current value is too small.
+2025-04-15 11:41:02 INFO  [JettyServerThreadPool-126] org.apache.velocity - Runtime: ran out of parsers. Creating a new one.  Please increment the parser.pool.size property. The current value is too small.
+2025-04-15 11:41:02 INFO  [JettyServerThreadPool-127] org.apache.velocity - Runtime: ran out of parsers. Creating a new one.  Please increment the parser.pool.size property. The current value is too small.
+2025-04-15 11:41:02 INFO  [JettyServerThreadPool-32] org.apache.velocity - Runtime: ran out of parsers. Creating a new one.  Please increment the parser.pool.size property. The current value is too small.
+2025-04-15 11:41:02 INFO  [JettyServerThreadPool-120] org.apache.velocity - Runtime: ran out of parsers. Creating a new one.  Please increment the parser.pool.size property. The current value is too small.
+2025-04-15 11:41:02 INFO  [JettyServerThreadPool-70] org.apache.velocity - Runtime: ran out of parsers. Creating a new one.  Please increment the parser.pool.size property. The current value is too small.
+2025-04-15 11:41:02 INFO  [JettyServerThreadPool-126] org.apache.velocity - Runtime: ran out of parsers. Creating a new one.  Please increment the parser.pool.size property. The current value is too small.
+2025-04-15 11:41:02 INFO  [JettyServerThreadPool-154] org.apache.velocity - Runtime: ran out of parsers. Creating a new one.  Please increment the parser.pool.size property. The current value is too small.
+2025-04-15 11:41:02 INFO  [JettyServerThreadPool-153] org.apache.velocity - Runtime: ran out of parsers. Creating a new one.  Please increment the parser.pool.size property. The current value is too small.
+2025-04-15 11:41:02 INFO  [JettyServerThreadPool-152] org.apache.velocity - Runtime: ran out of parsers. Creating a new one.  Please increment the parser.pool.size property. The current value is too small.
+2025-04-15 11:41:02 INFO  [JettyServerThreadPool-150] org.apache.velocity - Runtime: ran out of parsers. Creating a new one.  Please increment the parser.pool.size property. The current value is too small.
+2025-04-15 11:41:02 INFO  [JettyServerThreadPool-151] org.apache.velocity - Runtime: ran out of parsers. Creating a new one.  Please increment the parser.pool.size property. The current value is too small.
+2025-04-15 11:41:02 INFO  [JettyServerThreadPool-154] org.apache.velocity - Runtime: ran out of parsers. Creating a new one.  Please increment the parser.pool.size property. The current value is too small.
+2025-04-15 11:41:02 INFO  [JettyServerThreadPool-149] org.apache.velocity - Runtime: ran out of parsers. Creating a new one.  Please increment the parser.pool.size property. The current value is too small.
+2025-04-15 11:41:02 INFO  [JettyServerThreadPool-147] org.apache.velocity - Runtime: ran out of parsers. Creating a new one.  Please increment the parser.pool.size property. The current value is too small.
+2025-04-15 11:41:02 INFO  [JettyServerThreadPool-150] org.apache.velocity - Runtime: ran out of parsers. Creating a new one.  Please increment the parser.pool.size property. The current value is too small.
+2025-04-15 11:41:02 INFO  [JettyServerThreadPool-148] org.apache.velocity - Runtime: ran out of parsers. Creating a new one.  Please increment the parser.pool.size property. The current value is too small.
+2025-04-15 11:41:02 INFO  [JettyServerThreadPool-147] org.apache.velocity - Runtime: ran out of parsers. Creating a new one.  Please increment the parser.pool.size property. The current value is too small.
+2025-04-15 11:41:02 INFO  [JettyServerThreadPool-149] org.apache.velocity - Runtime: ran out of parsers. Creating a new one.  Please increment the parser.pool.size property. The current value is too small.
+2025-04-15 11:41:02 INFO  [JettyServerThreadPool-146] org.apache.velocity - Runtime: ran out of parsers. Creating a new one.  Please increment the parser.pool.size property. The current value is too small.
+2025-04-15 11:41:02 INFO  [JettyServerThreadPool-145] org.apache.velocity - Runtime: ran out of parsers. Creating a new one.  Please increment the parser.pool.size property. The current value is too small.
+2025-04-15 11:41:02 INFO  [JettyServerThreadPool-143] org.apache.velocity - Runtime: ran out of parsers. Creating a new one.  Please increment the parser.pool.size property. The current value is too small.
+2025-04-15 11:41:02 INFO  [JettyServerThreadPool-145] org.apache.velocity - Runtime: ran out of parsers. Creating a new one.  Please increment the parser.pool.size property. The current value is too small.
+2025-04-15 11:41:02 INFO  [JettyServerThreadPool-146] org.apache.velocity - Runtime: ran out of parsers. Creating a new one.  Please increment the parser.pool.size property. The current value is too small.
+2025-04-15 11:41:02 INFO  [JettyServerThreadPool-143] org.apache.velocity - Runtime: ran out of parsers. Creating a new one.  Please increment the parser.pool.size property. The current value is too small.
+2025-04-15 11:41:02 INFO  [JettyServerThreadPool-131] org.apache.velocity - Runtime: ran out of parsers. Creating a new one.  Please increment the parser.pool.size property. The current value is too small.
+2025-04-15 11:41:02 INFO  [JettyServerThreadPool-135] org.apache.velocity - Runtime: ran out of parsers. Creating a new one.  Please increment the parser.pool.size property. The current value is too small.
+2025-04-15 11:41:02 INFO  [JettyServerThreadPool-138] org.apache.velocity - Runtime: ran out of parsers. Creating a new one.  Please increment the parser.pool.size property. The current value is too small.
+2025-04-15 11:41:02 INFO  [JettyServerThreadPool-138] org.apache.velocity - Runtime: ran out of parsers. Creating a new one.  Please increment the parser.pool.size property. The current value is too small.
+2025-04-15 11:41:03 INFO  [JettyServerThreadPool-134] org.apache.velocity - Runtime: ran out of parsers. Creating a new one.  Please increment the parser.pool.size property. The current value is too small.
+2025-04-15 11:41:03 INFO  [JettyServerThreadPool-125] org.apache.velocity - Runtime: ran out of parsers. Creating a new one.  Please increment the parser.pool.size property. The current value is too small.
+2025-04-15 11:41:03 INFO  [JettyServerThreadPool-134] org.apache.velocity - Runtime: ran out of parsers. Creating a new one.  Please increment the parser.pool.size property. The current value is too small.
+2025-04-15 11:41:03 INFO  [JettyServerThreadPool-131] org.apache.velocity - Runtime: ran out of parsers. Creating a new one.  Please increment the parser.pool.size property. The current value is too small.
+2025-04-15 11:41:03 INFO  [JettyServerThreadPool-141] org.apache.velocity - Runtime: ran out of parsers. Creating a new one.  Please increment the parser.pool.size property. The current value is too small.
+2025-04-15 11:41:03 INFO  [JettyServerThreadPool-148] org.apache.velocity - Runtime: ran out of parsers. Creating a new one.  Please increment the parser.pool.size property. The current value is too small.
+2025-04-15 11:41:03 INFO  [JettyServerThreadPool-153] org.apache.velocity - Runtime: ran out of parsers. Creating a new one.  Please increment the parser.pool.size property. The current value is too small.
+2025-04-15 11:41:03 INFO  [JettyServerThreadPool-151] org.apache.velocity - Runtime: ran out of parsers. Creating a new one.  Please increment the parser.pool.size property. The current value is too small.
+2025-04-15 11:41:03 INFO  [JettyServerThreadPool-152] org.apache.velocity - Runtime: ran out of parsers. Creating a new one.  Please increment the parser.pool.size property. The current value is too small.
+2025-04-15 11:41:03 INFO  [JettyServerThreadPool-118] org.apache.velocity - Runtime: ran out of parsers. Creating a new one.  Please increment the parser.pool.size property. The current value is too small.
+2025-04-15 11:41:03 INFO  [JettyServerThreadPool-70] org.apache.velocity - Runtime: ran out of parsers. Creating a new one.  Please increment the parser.pool.size property. The current value is too small.
+2025-04-15 11:41:03 INFO  [JettyServerThreadPool-130] org.apache.velocity - Runtime: ran out of parsers. Creating a new one.  Please increment the parser.pool.size property. The current value is too small.
+2025-04-15 11:41:03 INFO  [JettyServerThreadPool-130] org.apache.velocity - Runtime: ran out of parsers. Creating a new one.  Please increment the parser.pool.size property. The current value is too small.
+2025-04-15 11:41:03 INFO  [JettyServerThreadPool-32] org.apache.velocity - Runtime: ran out of parsers. Creating a new one.  Please increment the parser.pool.size property. The current value is too small.
+2025-04-15 11:41:03 INFO  [JettyServerThreadPool-114] org.apache.velocity - Runtime: ran out of parsers. Creating a new one.  Please increment the parser.pool.size property. The current value is too small.
+2025-04-15 11:41:04 INFO  [JettyServerThreadPool-118] org.apache.velocity - Runtime: ran out of parsers. Creating a new one.  Please increment the parser.pool.size property. The current value is too small.
+2025-04-15 11:41:04 INFO  [JettyServerThreadPool-118] org.apache.velocity - Runtime: ran out of parsers. Creating a new one.  Please increment the parser.pool.size property. The current value is too small.
+2025-04-15 11:41:03 INFO  [JettyServerThreadPool-129] org.apache.velocity - Runtime: ran out of parsers. Creating a new one.  Please increment the parser.pool.size property. The current value is too small.
+2025-04-15 11:41:04 INFO  [JettyServerThreadPool-129] org.apache.velocity - Runtime: ran out of parsers. Creating a new one.  Please increment the parser.pool.size property. The current value is too small.
+2025-04-15 11:41:04 INFO  [JettyServerThreadPool-150] org.apache.velocity - Runtime: ran out of parsers. Creating a new one.  Please increment the parser.pool.size property. The current value is too small.
+2025-04-15 11:41:04 INFO  [JettyServerThreadPool-141] org.apache.velocity - Runtime: ran out of parsers. Creating a new one.  Please increment the parser.pool.size property. The current value is too small.
+2025-04-15 11:41:04 INFO  [JettyServerThreadPool-150] org.apache.velocity - Runtime: ran out of parsers. Creating a new one.  Please increment the parser.pool.size property. The current value is too small.
+2025-04-15 11:41:04 INFO  [JettyServerThreadPool-143] org.apache.velocity - Runtime: ran out of parsers. Creating a new one.  Please increment the parser.pool.size property. The current value is too small.
+2025-04-15 11:41:04 INFO  [JettyServerThreadPool-143] org.apache.velocity - Runtime: ran out of parsers. Creating a new one.  Please increment the parser.pool.size property. The current value is too small.
+2025-04-15 11:41:04 INFO  [JettyServerThreadPool-147] org.apache.velocity - Runtime: ran out of parsers. Creating a new one.  Please increment the parser.pool.size property. The current value is too small.
+2025-04-15 11:41:04 INFO  [JettyServerThreadPool-147] org.apache.velocity - Runtime: ran out of parsers. Creating a new one.  Please increment the parser.pool.size property. The current value is too small.
+2025-04-15 11:41:04 INFO  [JettyServerThreadPool-135] org.apache.velocity - Runtime: ran out of parsers. Creating a new one.  Please increment the parser.pool.size property. The current value is too small.
+2025-04-15 11:41:05 INFO  [JettyServerThreadPool-104] org.apache.velocity - Runtime: ran out of parsers. Creating a new one.  Please increment the parser.pool.size property. The current value is too small.
+2025-04-15 11:41:05 INFO  [JettyServerThreadPool-146] org.apache.velocity - Runtime: ran out of parsers. Creating a new one.  Please increment the parser.pool.size property. The current value is too small.
+2025-04-15 11:41:05 INFO  [JettyServerThreadPool-146] org.apache.velocity - Runtime: ran out of parsers. Creating a new one.  Please increment the parser.pool.size property. The current value is too small.
+2025-04-15 11:41:05 INFO  [JettyServerThreadPool-147] org.apache.velocity - Runtime: ran out of parsers. Creating a new one.  Please increment the parser.pool.size property. The current value is too small.
+2025-04-15 11:41:05 INFO  [JettyServerThreadPool-143] org.apache.velocity - Runtime: ran out of parsers. Creating a new one.  Please increment the parser.pool.size property. The current value is too small.
+2025-04-15 11:41:05 INFO  [JettyServerThreadPool-150] org.apache.velocity - Runtime: ran out of parsers. Creating a new one.  Please increment the parser.pool.size property. The current value is too small.
+2025-04-15 11:41:05 INFO  [JettyServerThreadPool-126] org.apache.velocity - Runtime: ran out of parsers. Creating a new one.  Please increment the parser.pool.size property. The current value is too small.
+2025-04-15 11:41:05 INFO  [JettyServerThreadPool-153] org.apache.velocity - Runtime: ran out of parsers. Creating a new one.  Please increment the parser.pool.size property. The current value is too small.
+2025-04-15 11:41:05 INFO  [JettyServerThreadPool-126] org.apache.velocity - Runtime: ran out of parsers. Creating a new one.  Please increment the parser.pool.size property. The current value is too small.
+2025-04-15 11:41:05 INFO  [JettyServerThreadPool-153] org.apache.velocity - Runtime: ran out of parsers. Creating a new one.  Please increment the parser.pool.size property. The current value is too small.
+2025-04-15 11:41:04 INFO  [JettyServerThreadPool-133] org.apache.velocity - Runtime: ran out of parsers. Creating a new one.  Please increment the parser.pool.size property. The current value is too small.
+2025-04-15 11:41:05 INFO  [JettyServerThreadPool-133] org.apache.velocity - Runtime: ran out of parsers. Creating a new one.  Please increment the parser.pool.size property. The current value is too small.
+2025-04-15 11:41:05 INFO  [JettyServerThreadPool-151] org.apache.velocity - Runtime: ran out of parsers. Creating a new one.  Please increment the parser.pool.size property. The current value is too small.
+2025-04-15 11:41:05 INFO  [JettyServerThreadPool-133] org.apache.velocity - Runtime: ran out of parsers. Creating a new one.  Please increment the parser.pool.size property. The current value is too small.
+2025-04-15 11:41:05 INFO  [JettyServerThreadPool-151] org.apache.velocity - Runtime: ran out of parsers. Creating a new one.  Please increment the parser.pool.size property. The current value is too small.
+2025-04-15 11:41:05 INFO  [JettyServerThreadPool-154] org.apache.velocity - Runtime: ran out of parsers. Creating a new one.  Please increment the parser.pool.size property. The current value is too small.
+2025-04-15 11:41:05 INFO  [JettyServerThreadPool-154] org.apache.velocity - Runtime: ran out of parsers. Creating a new one.  Please increment the parser.pool.size property. The current value is too small.
+2025-04-15 11:41:05 INFO  [JettyServerThreadPool-151] org.apache.velocity - Runtime: ran out of parsers. Creating a new one.  Please increment the parser.pool.size property. The current value is too small.
+2025-04-15 11:41:05 INFO  [JettyServerThreadPool-70] org.apache.velocity - Runtime: ran out of parsers. Creating a new one.  Please increment the parser.pool.size property. The current value is too small.
+2025-04-15 11:41:28 INFO  [JettyServerThreadPool-133] org.apache.velocity - Runtime: ran out of parsers. Creating a new one.  Please increment the parser.pool.size property. The current value is too small.
+2025-04-15 11:41:28 INFO  [JettyServerThreadPool-144] org.apache.velocity - Runtime: ran out of parsers. Creating a new one.  Please increment the parser.pool.size property. The current value is too small.
+2025-04-15 11:41:28 INFO  [JettyServerThreadPool-144] org.apache.velocity - Runtime: ran out of parsers. Creating a new one.  Please increment the parser.pool.size property. The current value is too small.
+2025-04-15 11:41:28 INFO  [JettyServerThreadPool-133] org.apache.velocity - Runtime: ran out of parsers. Creating a new one.  Please increment the parser.pool.size property. The current value is too small.
+2025-04-15 11:41:28 INFO  [JettyServerThreadPool-143] org.apache.velocity - Runtime: ran out of parsers. Creating a new one.  Please increment the parser.pool.size property. The current value is too small.
+2025-04-15 11:41:28 INFO  [JettyServerThreadPool-108] org.apache.velocity - Runtime: ran out of parsers. Creating a new one.  Please increment the parser.pool.size property. The current value is too small.
+2025-04-15 11:41:28 INFO  [JettyServerThreadPool-143] org.apache.velocity - Runtime: ran out of parsers. Creating a new one.  Please increment the parser.pool.size property. The current value is too small.
+2025-04-15 11:41:28 INFO  [JettyServerThreadPool-108] org.apache.velocity - Runtime: ran out of parsers. Creating a new one.  Please increment the parser.pool.size property. The current value is too small.
+2025-04-15 11:41:28 INFO  [JettyServerThreadPool-32] org.apache.velocity - Runtime: ran out of parsers. Creating a new one.  Please increment the parser.pool.size property. The current value is too small.
+2025-04-15 11:41:29 INFO  [JettyServerThreadPool-70] org.apache.velocity - Runtime: ran out of parsers. Creating a new one.  Please increment the parser.pool.size property. The current value is too small.
+2025-04-15 11:41:29 INFO  [JettyServerThreadPool-125] org.apache.velocity - Runtime: ran out of parsers. Creating a new one.  Please increment the parser.pool.size property. The current value is too small.
+2025-04-15 11:41:29 INFO  [JettyServerThreadPool-154] org.apache.velocity - Runtime: ran out of parsers. Creating a new one.  Please increment the parser.pool.size property. The current value is too small.
+2025-04-15 11:41:29 INFO  [JettyServerThreadPool-154] org.apache.velocity - Runtime: ran out of parsers. Creating a new one.  Please increment the parser.pool.size property. The current value is too small.
+2025-04-15 11:41:29 INFO  [JettyServerThreadPool-148] org.apache.velocity - Runtime: ran out of parsers. Creating a new one.  Please increment the parser.pool.size property. The current value is too small.
+2025-04-15 11:41:29 INFO  [JettyServerThreadPool-148] org.apache.velocity - Runtime: ran out of parsers. Creating a new one.  Please increment the parser.pool.size property. The current value is too small.
+2025-04-15 11:41:29 INFO  [JettyServerThreadPool-145] org.apache.velocity - Runtime: ran out of parsers. Creating a new one.  Please increment the parser.pool.size property. The current value is too small.
+2025-04-15 11:41:29 INFO  [JettyServerThreadPool-148] org.apache.velocity - Runtime: ran out of parsers. Creating a new one.  Please increment the parser.pool.size property. The current value is too small.
+2025-04-15 11:41:29 INFO  [JettyServerThreadPool-137] org.apache.velocity - Runtime: ran out of parsers. Creating a new one.  Please increment the parser.pool.size property. The current value is too small.
+2025-04-15 11:41:29 INFO  [JettyServerThreadPool-107] org.apache.velocity - Runtime: ran out of parsers. Creating a new one.  Please increment the parser.pool.size property. The current value is too small.
+2025-04-15 11:41:29 INFO  [JettyServerThreadPool-121] org.apache.velocity - Runtime: ran out of parsers. Creating a new one.  Please increment the parser.pool.size property. The current value is too small.
+2025-04-15 11:41:29 INFO  [JettyServerThreadPool-107] org.apache.velocity - Runtime: ran out of parsers. Creating a new one.  Please increment the parser.pool.size property. The current value is too small.
+2025-04-15 11:41:29 INFO  [JettyServerThreadPool-121] org.apache.velocity - Runtime: ran out of parsers. Creating a new one.  Please increment the parser.pool.size property. The current value is too small.
+2025-04-15 11:41:29 INFO  [JettyServerThreadPool-112] org.apache.velocity - Runtime: ran out of parsers. Creating a new one.  Please increment the parser.pool.size property. The current value is too small.
+2025-04-15 11:41:29 INFO  [JettyServerThreadPool-70] org.apache.velocity - Runtime: ran out of parsers. Creating a new one.  Please increment the parser.pool.size property. The current value is too small.
+2025-04-15 11:41:29 INFO  [JettyServerThreadPool-109] org.apache.velocity - Runtime: ran out of parsers. Creating a new one.  Please increment the parser.pool.size property. The current value is too small.
+2025-04-15 11:41:29 INFO  [JettyServerThreadPool-109] org.apache.velocity - Runtime: ran out of parsers. Creating a new one.  Please increment the parser.pool.size property. The current value is too small.
+2025-04-15 11:41:29 INFO  [JettyServerThreadPool-150] org.apache.velocity - Runtime: ran out of parsers. Creating a new one.  Please increment the parser.pool.size property. The current value is too small.
+2025-04-15 11:41:29 INFO  [JettyServerThreadPool-150] org.apache.velocity - Runtime: ran out of parsers. Creating a new one.  Please increment the parser.pool.size property. The current value is too small.
+2025-04-15 11:41:29 INFO  [JettyServerThreadPool-118] org.apache.velocity - Runtime: ran out of parsers. Creating a new one.  Please increment the parser.pool.size property. The current value is too small.
+2025-04-15 11:41:29 INFO  [JettyServerThreadPool-118] org.apache.velocity - Runtime: ran out of parsers. Creating a new one.  Please increment the parser.pool.size property. The current value is too small.
+2025-04-15 11:41:29 INFO  [JettyServerThreadPool-126] org.apache.velocity - Runtime: ran out of parsers. Creating a new one.  Please increment the parser.pool.size property. The current value is too small.
+2025-04-15 11:41:30 INFO  [JettyServerThreadPool-126] org.apache.velocity - Runtime: ran out of parsers. Creating a new one.  Please increment the parser.pool.size property. The current value is too small.
+2025-04-15 11:41:30 INFO  [JettyServerThreadPool-152] org.apache.velocity - Runtime: ran out of parsers. Creating a new one.  Please increment the parser.pool.size property. The current value is too small.
+2025-04-15 11:41:30 INFO  [JettyServerThreadPool-152] org.apache.velocity - Runtime: ran out of parsers. Creating a new one.  Please increment the parser.pool.size property. The current value is too small.
+2025-04-15 11:41:30 INFO  [JettyServerThreadPool-112] org.apache.velocity - Runtime: ran out of parsers. Creating a new one.  Please increment the parser.pool.size property. The current value is too small.
+2025-04-15 11:41:30 INFO  [JettyServerThreadPool-32] org.apache.velocity - Runtime: ran out of parsers. Creating a new one.  Please increment the parser.pool.size property. The current value is too small.
+2025-04-15 11:41:30 INFO  [JettyServerThreadPool-32] org.apache.velocity - Runtime: ran out of parsers. Creating a new one.  Please increment the parser.pool.size property. The current value is too small.
+2025-04-15 11:41:30 INFO  [JettyServerThreadPool-139] org.apache.velocity - Runtime: ran out of parsers. Creating a new one.  Please increment the parser.pool.size property. The current value is too small.
+2025-04-15 11:41:30 INFO  [JettyServerThreadPool-115] org.apache.velocity - Runtime: ran out of parsers. Creating a new one.  Please increment the parser.pool.size property. The current value is too small.
+2025-04-15 11:41:30 INFO  [JettyServerThreadPool-142] org.apache.velocity - Runtime: ran out of parsers. Creating a new one.  Please increment the parser.pool.size property. The current value is too small.
+2025-04-15 11:41:30 INFO  [JettyServerThreadPool-134] org.apache.velocity - Runtime: ran out of parsers. Creating a new one.  Please increment the parser.pool.size property. The current value is too small.
+2025-04-15 11:41:30 INFO  [JettyServerThreadPool-105] org.apache.velocity - Runtime: ran out of parsers. Creating a new one.  Please increment the parser.pool.size property. The current value is too small.
+2025-04-15 11:41:30 INFO  [JettyServerThreadPool-104] org.apache.velocity - Runtime: ran out of parsers. Creating a new one.  Please increment the parser.pool.size property. The current value is too small.
+2025-04-15 11:41:30 INFO  [JettyServerThreadPool-156] org.apache.velocity - Runtime: ran out of parsers. Creating a new one.  Please increment the parser.pool.size property. The current value is too small.
+2025-04-15 11:41:30 INFO  [JettyServerThreadPool-123] org.apache.velocity - Runtime: ran out of parsers. Creating a new one.  Please increment the parser.pool.size property. The current value is too small.
+2025-04-15 11:41:30 INFO  [JettyServerThreadPool-119] org.apache.velocity - Runtime: ran out of parsers. Creating a new one.  Please increment the parser.pool.size property. The current value is too small.
+2025-04-15 11:41:30 INFO  [JettyServerThreadPool-153] org.apache.velocity - Runtime: ran out of parsers. Creating a new one.  Please increment the parser.pool.size property. The current value is too small.
+2025-04-15 11:41:30 INFO  [JettyServerThreadPool-113] org.apache.velocity - Runtime: ran out of parsers. Creating a new one.  Please increment the parser.pool.size property. The current value is too small.
+2025-04-15 11:41:30 INFO  [JettyServerThreadPool-131] org.apache.velocity - Runtime: ran out of parsers. Creating a new one.  Please increment the parser.pool.size property. The current value is too small.
+2025-04-15 11:41:30 INFO  [JettyServerThreadPool-105] org.apache.velocity - Runtime: ran out of parsers. Creating a new one.  Please increment the parser.pool.size property. The current value is too small.
+2025-04-15 11:41:30 INFO  [JettyServerThreadPool-156] org.apache.velocity - Runtime: ran out of parsers. Creating a new one.  Please increment the parser.pool.size property. The current value is too small.
+2025-04-15 11:41:30 INFO  [JettyServerThreadPool-152] org.apache.velocity - Runtime: ran out of parsers. Creating a new one.  Please increment the parser.pool.size property. The current value is too small.
+2025-04-15 11:41:31 INFO  [JettyServerThreadPool-32] org.apache.velocity - Runtime: ran out of parsers. Creating a new one.  Please increment the parser.pool.size property. The current value is too small.
+2025-04-15 11:41:31 INFO  [JettyServerThreadPool-150] org.apache.velocity - Runtime: ran out of parsers. Creating a new one.  Please increment the parser.pool.size property. The current value is too small.
+2025-04-15 11:41:30 INFO  [JettyServerThreadPool-153] org.apache.velocity - Runtime: ran out of parsers. Creating a new one.  Please increment the parser.pool.size property. The current value is too small.
+2025-04-15 11:41:30 INFO  [JettyServerThreadPool-114] org.apache.velocity - Runtime: ran out of parsers. Creating a new one.  Please increment the parser.pool.size property. The current value is too small.
+2025-04-15 11:41:31 INFO  [JettyServerThreadPool-114] org.apache.velocity - Runtime: ran out of parsers. Creating a new one.  Please increment the parser.pool.size property. The current value is too small.
+2025-04-15 11:41:31 INFO  [JettyServerThreadPool-133] org.apache.velocity - Runtime: ran out of parsers. Creating a new one.  Please increment the parser.pool.size property. The current value is too small.
+2025-04-15 11:41:31 INFO  [JettyServerThreadPool-133] org.apache.velocity - Runtime: ran out of parsers. Creating a new one.  Please increment the parser.pool.size property. The current value is too small.
+2025-04-15 11:41:31 INFO  [JettyServerThreadPool-133] org.apache.velocity - Runtime: ran out of parsers. Creating a new one.  Please increment the parser.pool.size property. The current value is too small.
+2025-04-15 11:41:31 INFO  [JettyServerThreadPool-144] org.apache.velocity - Runtime: ran out of parsers. Creating a new one.  Please increment the parser.pool.size property. The current value is too small.
+2025-04-15 11:41:31 INFO  [JettyServerThreadPool-70] org.apache.velocity - Runtime: ran out of parsers. Creating a new one.  Please increment the parser.pool.size property. The current value is too small.
+2025-04-15 11:41:30 INFO  [JettyServerThreadPool-119] org.apache.velocity - Runtime: ran out of parsers. Creating a new one.  Please increment the parser.pool.size property. The current value is too small.
+2025-04-15 11:41:30 INFO  [JettyServerThreadPool-123] org.apache.velocity - Runtime: ran out of parsers. Creating a new one.  Please increment the parser.pool.size property. The current value is too small.
+2025-04-15 11:41:31 INFO  [JettyServerThreadPool-70] org.apache.velocity - Runtime: ran out of parsers. Creating a new one.  Please increment the parser.pool.size property. The current value is too small.
+2025-04-15 11:41:30 INFO  [JettyServerThreadPool-134] org.apache.velocity - Runtime: ran out of parsers. Creating a new one.  Please increment the parser.pool.size property. The current value is too small.
+2025-04-15 11:41:31 INFO  [JettyServerThreadPool-113] org.apache.velocity - Runtime: ran out of parsers. Creating a new one.  Please increment the parser.pool.size property. The current value is too small.
+2025-04-15 11:41:31 INFO  [JettyServerThreadPool-104] org.apache.velocity - Runtime: ran out of parsers. Creating a new one.  Please increment the parser.pool.size property. The current value is too small.
+2025-04-15 11:41:31 INFO  [JettyServerThreadPool-115] org.apache.velocity - Runtime: ran out of parsers. Creating a new one.  Please increment the parser.pool.size property. The current value is too small.
+2025-04-15 11:41:32 INFO  [JettyServerThreadPool-119] org.apache.velocity - Runtime: ran out of parsers. Creating a new one.  Please increment the parser.pool.size property. The current value is too small.
+2025-04-15 11:41:32 INFO  [JettyServerThreadPool-112] org.apache.velocity - Runtime: ran out of parsers. Creating a new one.  Please increment the parser.pool.size property. The current value is too small.
+2025-04-15 11:41:32 INFO  [JettyServerThreadPool-112] org.apache.velocity - Runtime: ran out of parsers. Creating a new one.  Please increment the parser.pool.size property. The current value is too small.
+2025-04-15 11:41:32 INFO  [JettyServerThreadPool-104] org.apache.velocity - Runtime: ran out of parsers. Creating a new one.  Please increment the parser.pool.size property. The current value is too small.
+2025-04-15 11:41:32 INFO  [JettyServerThreadPool-156] org.apache.velocity - Runtime: ran out of parsers. Creating a new one.  Please increment the parser.pool.size property. The current value is too small.
+2025-04-15 11:41:32 INFO  [JettyServerThreadPool-104] org.apache.velocity - Runtime: ran out of parsers. Creating a new one.  Please increment the parser.pool.size property. The current value is too small.
+2025-04-15 11:41:32 INFO  [JettyServerThreadPool-156] org.apache.velocity - Runtime: ran out of parsers. Creating a new one.  Please increment the parser.pool.size property. The current value is too small.
+2025-04-15 11:41:32 INFO  [JettyServerThreadPool-104] org.apache.velocity - Runtime: ran out of parsers. Creating a new one.  Please increment the parser.pool.size property. The current value is too small.
+2025-04-15 11:41:33 INFO  [JettyServerThreadPool-119] org.apache.velocity - Runtime: ran out of parsers. Creating a new one.  Please increment the parser.pool.size property. The current value is too small.
+2025-04-15 12:04:03 INFO  [JettyServerThreadPool-137] c.f.u.controllers.UserController - Sign-in attempt for user: potter@hogwarts.uk
+2025-04-15 12:08:02 INFO  [JettyServerThreadPool-137] c.f.u.controllers.UserController - Sign-in attempt for user: potter@hogwarts.uk
+2025-04-15 12:10:45 INFO  [main] com.fluffy.universe.Main - Application is starting...
+2025-04-15 12:10:45 INFO  [main] org.eclipse.jetty.util.log - Logging initialized @1918ms to org.eclipse.jetty.util.log.Slf4jLog
+2025-04-15 12:10:45 INFO  [main] io.javalin.Javalin - 
+       __                      __ _            __ __
+      / /____ _ _   __ ____ _ / /(_)____      / // /
+ __  / // __ `/| | / // __ `// // // __ \    / // /_
+/ /_/ // /_/ / | |/ // /_/ // // // / / /   /__  __/
+\____/ \__,_/  |___/ \__,_//_//_//_/ /_/      /_/
+
+          https://javalin.io/documentation
+
+2025-04-15 12:10:45 INFO  [main] io.javalin.Javalin - Starting Javalin ...
+2025-04-15 12:10:45 INFO  [main] io.javalin.Javalin - You are running Javalin 4.6.7 (released October 24, 2022. Your Javalin version is 904 days old. Consider checking for a newer version.).
+2025-04-15 12:10:47 INFO  [main] io.javalin.Javalin - Static file handler added: StaticFileConfig(hostedPath=/, directory=/public, location=CLASSPATH, precompress=false, aliasCheck=null, headers={Cache-Control=max-age=0}). File system location: 'file:///E:/erlkonig/universe-blog/target/classes/public/'
+2025-04-15 12:10:47 INFO  [main] io.javalin.Javalin - Listening on http://127.0.0.1:7000/
+2025-04-15 12:10:47 INFO  [main] io.javalin.Javalin - Javalin started in 1044ms \o/
+2025-04-15 12:12:14 INFO  [main] com.fluffy.universe.Main - Application is starting...
+2025-04-15 12:12:14 INFO  [main] org.eclipse.jetty.util.log - Logging initialized @1669ms to org.eclipse.jetty.util.log.Slf4jLog
+2025-04-15 12:12:14 INFO  [main] io.javalin.Javalin - 
+       __                      __ _            __ __
+      / /____ _ _   __ ____ _ / /(_)____      / // /
+ __  / // __ `/| | / // __ `// // // __ \    / // /_
+/ /_/ // /_/ / | |/ // /_/ // // // / / /   /__  __/
+\____/ \__,_/  |___/ \__,_//_//_//_/ /_/      /_/
+
+          https://javalin.io/documentation
+
+2025-04-15 12:12:14 INFO  [main] io.javalin.Javalin - Starting Javalin ...
+2025-04-15 12:12:14 INFO  [main] io.javalin.Javalin - You are running Javalin 4.6.7 (released October 24, 2022. Your Javalin version is 904 days old. Consider checking for a newer version.).
+2025-04-15 12:12:15 INFO  [main] io.javalin.Javalin - Static file handler added: StaticFileConfig(hostedPath=/, directory=/public, location=CLASSPATH, precompress=false, aliasCheck=null, headers={Cache-Control=max-age=0}). File system location: 'file:///E:/erlkonig/universe-blog/target/classes/public/'
+2025-04-15 12:12:15 INFO  [main] io.javalin.Javalin - Listening on http://127.0.0.1:7000/
+2025-04-15 12:12:15 INFO  [main] io.javalin.Javalin - Javalin started in 1043ms \o/
+2025-04-15 12:12:38 INFO  [JettyServerThreadPool-32] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-04-15 12:12:42 INFO  [JettyServerThreadPool-32] com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.sqlite.jdbc4.JDBC4Connection@4be515fd
+2025-04-15 12:12:42 INFO  [JettyServerThreadPool-32] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-04-15 12:12:48 INFO  [JettyServerThreadPool-34] c.f.u.controllers.UserController - Sign-in attempt for user: potter@hogwarts.uk
+2025-04-15 12:14:05 INFO  [JettyServerThreadPool-28] org.apache.velocity - Runtime: ran out of parsers. Creating a new one.  Please increment the parser.pool.size property. The current value is too small.

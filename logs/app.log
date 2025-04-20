@@ -1,0 +1,40 @@
+2025-04-20 13:19:18 INFO  [main] com.fluffy.universe.Main - Application is starting...
+2025-04-20 13:19:18 INFO  [main] org.eclipse.jetty.util.log - Logging initialized @2216ms to org.eclipse.jetty.util.log.Slf4jLog
+2025-04-20 13:19:19 INFO  [main] io.javalin.Javalin - 
+       __                      __ _            __ __
+      / /____ _ _   __ ____ _ / /(_)____      / // /
+ __  / // __ `/| | / // __ `// // // __ \    / // /_
+/ /_/ // /_/ / | |/ // /_/ // // // / / /   /__  __/
+\____/ \__,_/  |___/ \__,_//_//_//_/ /_/      /_/
+
+          https://javalin.io/documentation
+
+2025-04-20 13:19:19 INFO  [main] io.javalin.Javalin - Starting Javalin ...
+2025-04-20 13:19:19 INFO  [main] io.javalin.Javalin - You are running Javalin 4.6.7 (released October 24, 2022. Your Javalin version is 909 days old. Consider checking for a newer version.).
+2025-04-20 13:19:20 INFO  [main] io.javalin.Javalin - Static file handler added: StaticFileConfig(hostedPath=/, directory=/public, location=CLASSPATH, precompress=false, aliasCheck=null, headers={Cache-Control=max-age=0}). File system location: 'file:///E:/erlkonig/universe-blog/target/classes/public/'
+2025-04-20 13:19:20 INFO  [main] io.javalin.Javalin - Listening on http://127.0.0.1:7000/
+2025-04-20 13:19:20 INFO  [main] io.javalin.Javalin - Javalin started in 1143ms \o/
+2025-04-20 13:21:02 INFO  [JettyServerThreadPool-33] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-04-20 13:21:05 INFO  [JettyServerThreadPool-33] com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.sqlite.jdbc4.JDBC4Connection@6e975bfa
+2025-04-20 13:21:05 INFO  [JettyServerThreadPool-33] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-04-20 13:21:17 INFO  [JettyServerThreadPool-35] c.f.u.controllers.UserController - User potter123456@hogwarts.uk registered successfully
+2025-04-20 13:37:36 INFO  [main] com.fluffy.universe.Main - Application is starting...
+2025-04-20 13:37:36 INFO  [main] org.eclipse.jetty.util.log - Logging initialized @1279ms to org.eclipse.jetty.util.log.Slf4jLog
+2025-04-20 13:37:36 INFO  [main] io.javalin.Javalin - 
+       __                      __ _            __ __
+      / /____ _ _   __ ____ _ / /(_)____      / // /
+ __  / // __ `/| | / // __ `// // // __ \    / // /_
+/ /_/ // /_/ / | |/ // /_/ // // // / / /   /__  __/
+\____/ \__,_/  |___/ \__,_//_//_//_/ /_/      /_/
+
+          https://javalin.io/documentation
+
+2025-04-20 13:37:36 INFO  [main] io.javalin.Javalin - Starting Javalin ...
+2025-04-20 13:37:36 INFO  [main] io.javalin.Javalin - You are running Javalin 4.6.7 (released October 24, 2022. Your Javalin version is 909 days old. Consider checking for a newer version.).
+2025-04-20 13:37:37 INFO  [main] io.javalin.Javalin - Static file handler added: StaticFileConfig(hostedPath=/, directory=/public, location=CLASSPATH, precompress=false, aliasCheck=null, headers={Cache-Control=max-age=0}). File system location: 'file:///E:/erlkonig/universe-blog/target/classes/public/'
+2025-04-20 13:37:37 INFO  [main] io.javalin.Javalin - Listening on http://127.0.0.1:7000/
+2025-04-20 13:37:37 INFO  [main] io.javalin.Javalin - Javalin started in 867ms \o/
+2025-04-20 13:37:42 INFO  [JettyServerThreadPool-32] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-04-20 13:37:42 INFO  [JettyServerThreadPool-32] com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.sqlite.jdbc4.JDBC4Connection@6ecd3887
+2025-04-20 13:37:42 INFO  [JettyServerThreadPool-32] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-04-20 13:37:45 INFO  [JettyServerThreadPool-27] c.f.u.controllers.UserController - Sign-in attempt for user: potter@hogwarts.uk
